@@ -1,4 +1,4 @@
-module tarot_proto
+module github.com/Kai120789/tarot_proto
 
 go 1.24.3
 
