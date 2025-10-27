@@ -1628,7 +1628,7 @@ func (x *GetAllThemesByUserIdRequest) GetId() int64 {
 
 type GetAllThemesByUserIdResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserTheme     []*UserTheme           `protobuf:"bytes,1,rep,name=user_theme,json=userTheme,proto3" json:"user_theme,omitempty"`
+	UserThemes    []*UserTheme           `protobuf:"bytes,1,rep,name=user_themes,json=userThemes,proto3" json:"user_themes,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1663,9 +1663,9 @@ func (*GetAllThemesByUserIdResponse) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{27}
 }
 
-func (x *GetAllThemesByUserIdResponse) GetUserTheme() []*UserTheme {
+func (x *GetAllThemesByUserIdResponse) GetUserThemes() []*UserTheme {
 	if x != nil {
-		return x.UserTheme
+		return x.UserThemes
 	}
 	return nil
 }
@@ -2001,10 +2001,10 @@ const file_user_user_proto_rawDesc = "" +
 	"\x1fGetCurrentThemeByUserIdResponse\x12!\n" +
 	"\x05theme\x18\x01 \x01(\v2\v.user.ThemeR\x05theme\"-\n" +
 	"\x1bGetAllThemesByUserIdRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"N\n" +
-	"\x1cGetAllThemesByUserIdResponse\x12.\n" +
-	"\n" +
-	"user_theme\x18\x01 \x03(\v2\x0f.user.UserThemeR\tuserTheme\"G\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"P\n" +
+	"\x1cGetAllThemesByUserIdResponse\x120\n" +
+	"\vuser_themes\x18\x01 \x03(\v2\x0f.user.UserThemeR\n" +
+	"userThemes\"G\n" +
 	"\x1aSetUserCurrentThemeRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n" +
 	"\btheme_id\x18\x02 \x01(\x03R\athemeId\"@\n" +
@@ -2097,7 +2097,7 @@ var file_user_user_proto_depIdxs = []int32{
 	0,  // 12: user.SetUserCurrentDeckResponse.deck:type_name -> user.Deck
 	1,  // 13: user.UpdateUserAvailableDecksResponse.user_decks:type_name -> user.UserDeck
 	2,  // 14: user.GetCurrentThemeByUserIdResponse.theme:type_name -> user.Theme
-	3,  // 15: user.GetAllThemesByUserIdResponse.user_theme:type_name -> user.UserTheme
+	3,  // 15: user.GetAllThemesByUserIdResponse.user_themes:type_name -> user.UserTheme
 	2,  // 16: user.SetUserCurrentThemeResponse.theme:type_name -> user.Theme
 	3,  // 17: user.UpdateUserAvailableThemesResponse.user_themes:type_name -> user.UserTheme
 	4,  // 18: user.User.CreateUser:input_type -> user.CreateUserRequest

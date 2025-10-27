@@ -178,7 +178,7 @@ message GetAllThemesByUserIdRequest {
 }
 
 message GetAllThemesByUserIdResponse {
-    repeated UserTheme user_theme = 1;
+    repeated UserTheme user_themes = 1;
 }
 
 message SetUserCurrentThemeRequest {
