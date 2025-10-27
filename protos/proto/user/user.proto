@@ -137,7 +137,7 @@ message SetUserCurrentDeckRequest {
 }
 
 message SetUserCurrentDeckResponse {
-    int64 id = 1;
+    Deck deck = 1;
 }
 
 message UpdateUserAvailableDecksRequest {

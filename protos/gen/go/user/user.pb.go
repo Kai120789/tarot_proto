@@ -1236,7 +1236,7 @@ func (x *SetUserCurrentDeckRequest) GetDeckId() int64 {
 
 type SetUserCurrentDeckResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Deck          *Deck                  `protobuf:"bytes,1,opt,name=deck,proto3" json:"deck,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1271,11 +1271,11 @@ func (*SetUserCurrentDeckResponse) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{19}
 }
 
-func (x *SetUserCurrentDeckResponse) GetId() int64 {
+func (x *SetUserCurrentDeckResponse) GetDeck() *Deck {
 	if x != nil {
-		return x.Id
+		return x.Deck
 	}
-	return 0
+	return nil
 }
 
 type UpdateUserAvailableDecksRequest struct {
@@ -1489,9 +1489,10 @@ const file_user_user_proto_rawDesc = "" +
 	"user_decks\x18\x01 \x03(\v2\x0e.user.UserDeckR\tuserDecks\"D\n" +
 	"\x19SetUserCurrentDeckRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
-	"\adeck_id\x18\x02 \x01(\x03R\x06deckId\",\n" +
-	"\x1aSetUserCurrentDeckResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"J\n" +
+	"\adeck_id\x18\x02 \x01(\x03R\x06deckId\"<\n" +
+	"\x1aSetUserCurrentDeckResponse\x12\x1e\n" +
+	"\x04deck\x18\x01 \x01(\v2\n" +
+	".user.DeckR\x04deck\"J\n" +
 	"\x1fUpdateUserAvailableDecksRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
 	"\adeck_id\x18\x02 \x01(\x03R\x06deckId\"Q\n" +
@@ -1561,32 +1562,33 @@ var file_user_user_proto_depIdxs = []int32{
 	22, // 8: user.GetUserZodiacSignResponse.end_date:type_name -> google.protobuf.Timestamp
 	0,  // 9: user.GetCurrentDeckByUserIdResponse.deck:type_name -> user.Deck
 	1,  // 10: user.GetAllDecksByUserIdResponse.user_decks:type_name -> user.UserDeck
-	1,  // 11: user.UpdateUserAvailableDecksResponse.user_decks:type_name -> user.UserDeck
-	2,  // 12: user.User.CreateUser:input_type -> user.CreateUserRequest
-	4,  // 13: user.User.GetUserData:input_type -> user.GetUserDataRequest
-	6,  // 14: user.User.GetUserSettings:input_type -> user.GetUserSettingsRequest
-	8,  // 15: user.User.UpdateUserSettings:input_type -> user.UpdateUserSettingsRequest
-	10, // 16: user.User.SetUserBirthday:input_type -> user.SetUserBirthdayRequest
-	12, // 17: user.User.GetUserZodiacSign:input_type -> user.GetUserZodiacSignRequest
-	14, // 18: user.User.GetCurrentDeckByUserId:input_type -> user.GetCurrentDeckByUserIdRequest
-	16, // 19: user.User.GetAllDecksByUserId:input_type -> user.GetAllDecksByUserIdRequest
-	18, // 20: user.User.SetUserCurrentDeck:input_type -> user.SetUserCurrentDeckRequest
-	20, // 21: user.User.UpdateUserAvailableDecks:input_type -> user.UpdateUserAvailableDecksRequest
-	3,  // 22: user.User.CreateUser:output_type -> user.CreateUserResponse
-	5,  // 23: user.User.GetUserData:output_type -> user.GetUserDataResponse
-	7,  // 24: user.User.GetUserSettings:output_type -> user.GetUserSettingsResponse
-	9,  // 25: user.User.UpdateUserSettings:output_type -> user.UpdateUserSettingsResponse
-	11, // 26: user.User.SetUserBirthday:output_type -> user.SetUserBirthdayResponse
-	13, // 27: user.User.GetUserZodiacSign:output_type -> user.GetUserZodiacSignResponse
-	15, // 28: user.User.GetCurrentDeckByUserId:output_type -> user.GetCurrentDeckByUserIdResponse
-	17, // 29: user.User.GetAllDecksByUserId:output_type -> user.GetAllDecksByUserIdResponse
-	19, // 30: user.User.SetUserCurrentDeck:output_type -> user.SetUserCurrentDeckResponse
-	21, // 31: user.User.UpdateUserAvailableDecks:output_type -> user.UpdateUserAvailableDecksResponse
-	22, // [22:32] is the sub-list for method output_type
-	12, // [12:22] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	0,  // 11: user.SetUserCurrentDeckResponse.deck:type_name -> user.Deck
+	1,  // 12: user.UpdateUserAvailableDecksResponse.user_decks:type_name -> user.UserDeck
+	2,  // 13: user.User.CreateUser:input_type -> user.CreateUserRequest
+	4,  // 14: user.User.GetUserData:input_type -> user.GetUserDataRequest
+	6,  // 15: user.User.GetUserSettings:input_type -> user.GetUserSettingsRequest
+	8,  // 16: user.User.UpdateUserSettings:input_type -> user.UpdateUserSettingsRequest
+	10, // 17: user.User.SetUserBirthday:input_type -> user.SetUserBirthdayRequest
+	12, // 18: user.User.GetUserZodiacSign:input_type -> user.GetUserZodiacSignRequest
+	14, // 19: user.User.GetCurrentDeckByUserId:input_type -> user.GetCurrentDeckByUserIdRequest
+	16, // 20: user.User.GetAllDecksByUserId:input_type -> user.GetAllDecksByUserIdRequest
+	18, // 21: user.User.SetUserCurrentDeck:input_type -> user.SetUserCurrentDeckRequest
+	20, // 22: user.User.UpdateUserAvailableDecks:input_type -> user.UpdateUserAvailableDecksRequest
+	3,  // 23: user.User.CreateUser:output_type -> user.CreateUserResponse
+	5,  // 24: user.User.GetUserData:output_type -> user.GetUserDataResponse
+	7,  // 25: user.User.GetUserSettings:output_type -> user.GetUserSettingsResponse
+	9,  // 26: user.User.UpdateUserSettings:output_type -> user.UpdateUserSettingsResponse
+	11, // 27: user.User.SetUserBirthday:output_type -> user.SetUserBirthdayResponse
+	13, // 28: user.User.GetUserZodiacSign:output_type -> user.GetUserZodiacSignResponse
+	15, // 29: user.User.GetCurrentDeckByUserId:output_type -> user.GetCurrentDeckByUserIdResponse
+	17, // 30: user.User.GetAllDecksByUserId:output_type -> user.GetAllDecksByUserIdResponse
+	19, // 31: user.User.SetUserCurrentDeck:output_type -> user.SetUserCurrentDeckResponse
+	21, // 32: user.User.UpdateUserAvailableDecks:output_type -> user.UpdateUserAvailableDecksResponse
+	23, // [23:33] is the sub-list for method output_type
+	13, // [13:23] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_user_user_proto_init() }
