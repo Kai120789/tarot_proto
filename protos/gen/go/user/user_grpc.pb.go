@@ -19,12 +19,16 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	User_CreateUser_FullMethodName         = "/user.User/CreateUser"
-	User_GetUserData_FullMethodName        = "/user.User/GetUserData"
-	User_GetUserSettings_FullMethodName    = "/user.User/GetUserSettings"
-	User_UpdateUserSettings_FullMethodName = "/user.User/UpdateUserSettings"
-	User_SetUserBirthday_FullMethodName    = "/user.User/SetUserBirthday"
-	User_GetUserZodiacSign_FullMethodName  = "/user.User/GetUserZodiacSign"
+	User_CreateUser_FullMethodName               = "/user.User/CreateUser"
+	User_GetUserData_FullMethodName              = "/user.User/GetUserData"
+	User_GetUserSettings_FullMethodName          = "/user.User/GetUserSettings"
+	User_UpdateUserSettings_FullMethodName       = "/user.User/UpdateUserSettings"
+	User_SetUserBirthday_FullMethodName          = "/user.User/SetUserBirthday"
+	User_GetUserZodiacSign_FullMethodName        = "/user.User/GetUserZodiacSign"
+	User_GetCurrentDeckByUserId_FullMethodName   = "/user.User/GetCurrentDeckByUserId"
+	User_GetAllDecksByUserId_FullMethodName      = "/user.User/GetAllDecksByUserId"
+	User_SetUserCurrentDeck_FullMethodName       = "/user.User/SetUserCurrentDeck"
+	User_UpdateUserAvailableDecks_FullMethodName = "/user.User/UpdateUserAvailableDecks"
 )
 
 // UserClient is the client API for User service.
@@ -37,6 +41,10 @@ type UserClient interface {
 	UpdateUserSettings(ctx context.Context, in *UpdateUserSettingsRequest, opts ...grpc.CallOption) (*UpdateUserSettingsResponse, error)
 	SetUserBirthday(ctx context.Context, in *SetUserBirthdayRequest, opts ...grpc.CallOption) (*SetUserBirthdayResponse, error)
 	GetUserZodiacSign(ctx context.Context, in *GetUserZodiacSignRequest, opts ...grpc.CallOption) (*GetUserZodiacSignResponse, error)
+	GetCurrentDeckByUserId(ctx context.Context, in *GetCurrentDeckByUserIdRequest, opts ...grpc.CallOption) (*GetCurrentDeckByUserIdResponse, error)
+	GetAllDecksByUserId(ctx context.Context, in *GetAllDecksByUserIdRequest, opts ...grpc.CallOption) (*GetAllDecksByUserIdResponse, error)
+	SetUserCurrentDeck(ctx context.Context, in *SetUserCurrentDeckRequest, opts ...grpc.CallOption) (*SetUserCurrentDeckResponse, error)
+	UpdateUserAvailableDecks(ctx context.Context, in *UpdateUserAvailableDecksRequest, opts ...grpc.CallOption) (*UpdateUserAvailableDecksResponse, error)
 }
 
 type userClient struct {
@@ -107,6 +115,46 @@ func (c *userClient) GetUserZodiacSign(ctx context.Context, in *GetUserZodiacSig
 	return out, nil
 }
 
+func (c *userClient) GetCurrentDeckByUserId(ctx context.Context, in *GetCurrentDeckByUserIdRequest, opts ...grpc.CallOption) (*GetCurrentDeckByUserIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentDeckByUserIdResponse)
+	err := c.cc.Invoke(ctx, User_GetCurrentDeckByUserId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userClient) GetAllDecksByUserId(ctx context.Context, in *GetAllDecksByUserIdRequest, opts ...grpc.CallOption) (*GetAllDecksByUserIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllDecksByUserIdResponse)
+	err := c.cc.Invoke(ctx, User_GetAllDecksByUserId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userClient) SetUserCurrentDeck(ctx context.Context, in *SetUserCurrentDeckRequest, opts ...grpc.CallOption) (*SetUserCurrentDeckResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserCurrentDeckResponse)
+	err := c.cc.Invoke(ctx, User_SetUserCurrentDeck_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userClient) UpdateUserAvailableDecks(ctx context.Context, in *UpdateUserAvailableDecksRequest, opts ...grpc.CallOption) (*UpdateUserAvailableDecksResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateUserAvailableDecksResponse)
+	err := c.cc.Invoke(ctx, User_UpdateUserAvailableDecks_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServer is the server API for User service.
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility.
@@ -117,6 +165,10 @@ type UserServer interface {
 	UpdateUserSettings(context.Context, *UpdateUserSettingsRequest) (*UpdateUserSettingsResponse, error)
 	SetUserBirthday(context.Context, *SetUserBirthdayRequest) (*SetUserBirthdayResponse, error)
 	GetUserZodiacSign(context.Context, *GetUserZodiacSignRequest) (*GetUserZodiacSignResponse, error)
+	GetCurrentDeckByUserId(context.Context, *GetCurrentDeckByUserIdRequest) (*GetCurrentDeckByUserIdResponse, error)
+	GetAllDecksByUserId(context.Context, *GetAllDecksByUserIdRequest) (*GetAllDecksByUserIdResponse, error)
+	SetUserCurrentDeck(context.Context, *SetUserCurrentDeckRequest) (*SetUserCurrentDeckResponse, error)
+	UpdateUserAvailableDecks(context.Context, *UpdateUserAvailableDecksRequest) (*UpdateUserAvailableDecksResponse, error)
 	mustEmbedUnimplementedUserServer()
 }
 
@@ -144,6 +196,18 @@ func (UnimplementedUserServer) SetUserBirthday(context.Context, *SetUserBirthday
 }
 func (UnimplementedUserServer) GetUserZodiacSign(context.Context, *GetUserZodiacSignRequest) (*GetUserZodiacSignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserZodiacSign not implemented")
+}
+func (UnimplementedUserServer) GetCurrentDeckByUserId(context.Context, *GetCurrentDeckByUserIdRequest) (*GetCurrentDeckByUserIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentDeckByUserId not implemented")
+}
+func (UnimplementedUserServer) GetAllDecksByUserId(context.Context, *GetAllDecksByUserIdRequest) (*GetAllDecksByUserIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllDecksByUserId not implemented")
+}
+func (UnimplementedUserServer) SetUserCurrentDeck(context.Context, *SetUserCurrentDeckRequest) (*SetUserCurrentDeckResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetUserCurrentDeck not implemented")
+}
+func (UnimplementedUserServer) UpdateUserAvailableDecks(context.Context, *UpdateUserAvailableDecksRequest) (*UpdateUserAvailableDecksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserAvailableDecks not implemented")
 }
 func (UnimplementedUserServer) mustEmbedUnimplementedUserServer() {}
 func (UnimplementedUserServer) testEmbeddedByValue()              {}
@@ -274,6 +338,78 @@ func _User_GetUserZodiacSign_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _User_GetCurrentDeckByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentDeckByUserIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).GetCurrentDeckByUserId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_GetCurrentDeckByUserId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).GetCurrentDeckByUserId(ctx, req.(*GetCurrentDeckByUserIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _User_GetAllDecksByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllDecksByUserIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).GetAllDecksByUserId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_GetAllDecksByUserId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).GetAllDecksByUserId(ctx, req.(*GetAllDecksByUserIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _User_SetUserCurrentDeck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserCurrentDeckRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).SetUserCurrentDeck(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_SetUserCurrentDeck_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).SetUserCurrentDeck(ctx, req.(*SetUserCurrentDeckRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _User_UpdateUserAvailableDecks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserAvailableDecksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).UpdateUserAvailableDecks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_UpdateUserAvailableDecks_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).UpdateUserAvailableDecks(ctx, req.(*UpdateUserAvailableDecksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // User_ServiceDesc is the grpc.ServiceDesc for User service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -304,6 +440,22 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserZodiacSign",
 			Handler:    _User_GetUserZodiacSign_Handler,
+		},
+		{
+			MethodName: "GetCurrentDeckByUserId",
+			Handler:    _User_GetCurrentDeckByUserId_Handler,
+		},
+		{
+			MethodName: "GetAllDecksByUserId",
+			Handler:    _User_GetAllDecksByUserId_Handler,
+		},
+		{
+			MethodName: "SetUserCurrentDeck",
+			Handler:    _User_SetUserCurrentDeck_Handler,
+		},
+		{
+			MethodName: "UpdateUserAvailableDecks",
+			Handler:    _User_UpdateUserAvailableDecks_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

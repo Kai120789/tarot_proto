@@ -22,6 +22,118 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type Deck struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	DeckName        string                 `protobuf:"bytes,2,opt,name=deck_name,json=deckName,proto3" json:"deck_name,omitempty"`
+	DeckDescription string                 `protobuf:"bytes,3,opt,name=deck_description,json=deckDescription,proto3" json:"deck_description,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *Deck) Reset() {
+	*x = Deck{}
+	mi := &file_user_user_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Deck) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Deck) ProtoMessage() {}
+
+func (x *Deck) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Deck.ProtoReflect.Descriptor instead.
+func (*Deck) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Deck) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Deck) GetDeckName() string {
+	if x != nil {
+		return x.DeckName
+	}
+	return ""
+}
+
+func (x *Deck) GetDeckDescription() string {
+	if x != nil {
+		return x.DeckDescription
+	}
+	return ""
+}
+
+type UserDeck struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Deck          *Deck                  `protobuf:"bytes,1,opt,name=deck,proto3" json:"deck,omitempty"`
+	IsAvailable   bool                   `protobuf:"varint,2,opt,name=is_available,json=isAvailable,proto3" json:"is_available,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserDeck) Reset() {
+	*x = UserDeck{}
+	mi := &file_user_user_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserDeck) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserDeck) ProtoMessage() {}
+
+func (x *UserDeck) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserDeck.ProtoReflect.Descriptor instead.
+func (*UserDeck) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *UserDeck) GetDeck() *Deck {
+	if x != nil {
+		return x.Deck
+	}
+	return nil
+}
+
+func (x *UserDeck) GetIsAvailable() bool {
+	if x != nil {
+		return x.IsAvailable
+	}
+	return false
+}
+
 type CreateUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ChatId        int64                  `protobuf:"varint,1,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
@@ -38,7 +150,7 @@ type CreateUserRequest struct {
 
 func (x *CreateUserRequest) Reset() {
 	*x = CreateUserRequest{}
-	mi := &file_user_user_proto_msgTypes[0]
+	mi := &file_user_user_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -50,7 +162,7 @@ func (x *CreateUserRequest) String() string {
 func (*CreateUserRequest) ProtoMessage() {}
 
 func (x *CreateUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[0]
+	mi := &file_user_user_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -63,7 +175,7 @@ func (x *CreateUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserRequest.ProtoReflect.Descriptor instead.
 func (*CreateUserRequest) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{0}
+	return file_user_user_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateUserRequest) GetChatId() int64 {
@@ -143,7 +255,7 @@ type CreateUserResponse struct {
 
 func (x *CreateUserResponse) Reset() {
 	*x = CreateUserResponse{}
-	mi := &file_user_user_proto_msgTypes[1]
+	mi := &file_user_user_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -155,7 +267,7 @@ func (x *CreateUserResponse) String() string {
 func (*CreateUserResponse) ProtoMessage() {}
 
 func (x *CreateUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[1]
+	mi := &file_user_user_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -168,7 +280,7 @@ func (x *CreateUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserResponse.ProtoReflect.Descriptor instead.
 func (*CreateUserResponse) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{1}
+	return file_user_user_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateUserResponse) GetId() int64 {
@@ -271,7 +383,7 @@ type GetUserDataRequest struct {
 
 func (x *GetUserDataRequest) Reset() {
 	*x = GetUserDataRequest{}
-	mi := &file_user_user_proto_msgTypes[2]
+	mi := &file_user_user_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -283,7 +395,7 @@ func (x *GetUserDataRequest) String() string {
 func (*GetUserDataRequest) ProtoMessage() {}
 
 func (x *GetUserDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[2]
+	mi := &file_user_user_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -296,7 +408,7 @@ func (x *GetUserDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserDataRequest.ProtoReflect.Descriptor instead.
 func (*GetUserDataRequest) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{2}
+	return file_user_user_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetUserDataRequest) GetId() int64 {
@@ -327,7 +439,7 @@ type GetUserDataResponse struct {
 
 func (x *GetUserDataResponse) Reset() {
 	*x = GetUserDataResponse{}
-	mi := &file_user_user_proto_msgTypes[3]
+	mi := &file_user_user_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -339,7 +451,7 @@ func (x *GetUserDataResponse) String() string {
 func (*GetUserDataResponse) ProtoMessage() {}
 
 func (x *GetUserDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[3]
+	mi := &file_user_user_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -352,7 +464,7 @@ func (x *GetUserDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserDataResponse.ProtoReflect.Descriptor instead.
 func (*GetUserDataResponse) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{3}
+	return file_user_user_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetUserDataResponse) GetId() int64 {
@@ -455,7 +567,7 @@ type GetUserSettingsRequest struct {
 
 func (x *GetUserSettingsRequest) Reset() {
 	*x = GetUserSettingsRequest{}
-	mi := &file_user_user_proto_msgTypes[4]
+	mi := &file_user_user_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -467,7 +579,7 @@ func (x *GetUserSettingsRequest) String() string {
 func (*GetUserSettingsRequest) ProtoMessage() {}
 
 func (x *GetUserSettingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[4]
+	mi := &file_user_user_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -480,7 +592,7 @@ func (x *GetUserSettingsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserSettingsRequest.ProtoReflect.Descriptor instead.
 func (*GetUserSettingsRequest) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{4}
+	return file_user_user_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetUserSettingsRequest) GetId() int64 {
@@ -500,7 +612,7 @@ type GetUserSettingsResponse struct {
 
 func (x *GetUserSettingsResponse) Reset() {
 	*x = GetUserSettingsResponse{}
-	mi := &file_user_user_proto_msgTypes[5]
+	mi := &file_user_user_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -512,7 +624,7 @@ func (x *GetUserSettingsResponse) String() string {
 func (*GetUserSettingsResponse) ProtoMessage() {}
 
 func (x *GetUserSettingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[5]
+	mi := &file_user_user_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -525,7 +637,7 @@ func (x *GetUserSettingsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserSettingsResponse.ProtoReflect.Descriptor instead.
 func (*GetUserSettingsResponse) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{5}
+	return file_user_user_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetUserSettingsResponse) GetIsSubscribe() bool {
@@ -553,7 +665,7 @@ type UpdateUserSettingsRequest struct {
 
 func (x *UpdateUserSettingsRequest) Reset() {
 	*x = UpdateUserSettingsRequest{}
-	mi := &file_user_user_proto_msgTypes[6]
+	mi := &file_user_user_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -565,7 +677,7 @@ func (x *UpdateUserSettingsRequest) String() string {
 func (*UpdateUserSettingsRequest) ProtoMessage() {}
 
 func (x *UpdateUserSettingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[6]
+	mi := &file_user_user_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -578,7 +690,7 @@ func (x *UpdateUserSettingsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateUserSettingsRequest.ProtoReflect.Descriptor instead.
 func (*UpdateUserSettingsRequest) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{6}
+	return file_user_user_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateUserSettingsRequest) GetId() int64 {
@@ -612,7 +724,7 @@ type UpdateUserSettingsResponse struct {
 
 func (x *UpdateUserSettingsResponse) Reset() {
 	*x = UpdateUserSettingsResponse{}
-	mi := &file_user_user_proto_msgTypes[7]
+	mi := &file_user_user_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -624,7 +736,7 @@ func (x *UpdateUserSettingsResponse) String() string {
 func (*UpdateUserSettingsResponse) ProtoMessage() {}
 
 func (x *UpdateUserSettingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[7]
+	mi := &file_user_user_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -637,7 +749,7 @@ func (x *UpdateUserSettingsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateUserSettingsResponse.ProtoReflect.Descriptor instead.
 func (*UpdateUserSettingsResponse) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{7}
+	return file_user_user_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateUserSettingsResponse) GetIsSubscribe() bool {
@@ -666,7 +778,7 @@ type SetUserBirthdayRequest struct {
 
 func (x *SetUserBirthdayRequest) Reset() {
 	*x = SetUserBirthdayRequest{}
-	mi := &file_user_user_proto_msgTypes[8]
+	mi := &file_user_user_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -678,7 +790,7 @@ func (x *SetUserBirthdayRequest) String() string {
 func (*SetUserBirthdayRequest) ProtoMessage() {}
 
 func (x *SetUserBirthdayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[8]
+	mi := &file_user_user_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -691,7 +803,7 @@ func (x *SetUserBirthdayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUserBirthdayRequest.ProtoReflect.Descriptor instead.
 func (*SetUserBirthdayRequest) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{8}
+	return file_user_user_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SetUserBirthdayRequest) GetId() int64 {
@@ -730,7 +842,7 @@ type SetUserBirthdayResponse struct {
 
 func (x *SetUserBirthdayResponse) Reset() {
 	*x = SetUserBirthdayResponse{}
-	mi := &file_user_user_proto_msgTypes[9]
+	mi := &file_user_user_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -742,7 +854,7 @@ func (x *SetUserBirthdayResponse) String() string {
 func (*SetUserBirthdayResponse) ProtoMessage() {}
 
 func (x *SetUserBirthdayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[9]
+	mi := &file_user_user_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -755,7 +867,7 @@ func (x *SetUserBirthdayResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUserBirthdayResponse.ProtoReflect.Descriptor instead.
 func (*SetUserBirthdayResponse) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{9}
+	return file_user_user_proto_rawDescGZIP(), []int{11}
 }
 
 type GetUserZodiacSignRequest struct {
@@ -767,7 +879,7 @@ type GetUserZodiacSignRequest struct {
 
 func (x *GetUserZodiacSignRequest) Reset() {
 	*x = GetUserZodiacSignRequest{}
-	mi := &file_user_user_proto_msgTypes[10]
+	mi := &file_user_user_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -779,7 +891,7 @@ func (x *GetUserZodiacSignRequest) String() string {
 func (*GetUserZodiacSignRequest) ProtoMessage() {}
 
 func (x *GetUserZodiacSignRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[10]
+	mi := &file_user_user_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -792,7 +904,7 @@ func (x *GetUserZodiacSignRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserZodiacSignRequest.ProtoReflect.Descriptor instead.
 func (*GetUserZodiacSignRequest) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{10}
+	return file_user_user_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetUserZodiacSignRequest) GetId() int64 {
@@ -817,7 +929,7 @@ type GetUserZodiacSignResponse struct {
 
 func (x *GetUserZodiacSignResponse) Reset() {
 	*x = GetUserZodiacSignResponse{}
-	mi := &file_user_user_proto_msgTypes[11]
+	mi := &file_user_user_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -829,7 +941,7 @@ func (x *GetUserZodiacSignResponse) String() string {
 func (*GetUserZodiacSignResponse) ProtoMessage() {}
 
 func (x *GetUserZodiacSignResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_user_proto_msgTypes[11]
+	mi := &file_user_user_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -842,7 +954,7 @@ func (x *GetUserZodiacSignResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserZodiacSignResponse.ProtoReflect.Descriptor instead.
 func (*GetUserZodiacSignResponse) Descriptor() ([]byte, []int) {
-	return file_user_user_proto_rawDescGZIP(), []int{11}
+	return file_user_user_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetUserZodiacSignResponse) GetId() int64 {
@@ -894,11 +1006,387 @@ func (x *GetUserZodiacSignResponse) GetElement() string {
 	return ""
 }
 
+type GetCurrentDeckByUserIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentDeckByUserIdRequest) Reset() {
+	*x = GetCurrentDeckByUserIdRequest{}
+	mi := &file_user_user_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentDeckByUserIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentDeckByUserIdRequest) ProtoMessage() {}
+
+func (x *GetCurrentDeckByUserIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentDeckByUserIdRequest.ProtoReflect.Descriptor instead.
+func (*GetCurrentDeckByUserIdRequest) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetCurrentDeckByUserIdRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetCurrentDeckByUserIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Deck          *Deck                  `protobuf:"bytes,1,opt,name=deck,proto3" json:"deck,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentDeckByUserIdResponse) Reset() {
+	*x = GetCurrentDeckByUserIdResponse{}
+	mi := &file_user_user_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentDeckByUserIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentDeckByUserIdResponse) ProtoMessage() {}
+
+func (x *GetCurrentDeckByUserIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentDeckByUserIdResponse.ProtoReflect.Descriptor instead.
+func (*GetCurrentDeckByUserIdResponse) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetCurrentDeckByUserIdResponse) GetDeck() *Deck {
+	if x != nil {
+		return x.Deck
+	}
+	return nil
+}
+
+type GetAllDecksByUserIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllDecksByUserIdRequest) Reset() {
+	*x = GetAllDecksByUserIdRequest{}
+	mi := &file_user_user_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllDecksByUserIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllDecksByUserIdRequest) ProtoMessage() {}
+
+func (x *GetAllDecksByUserIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllDecksByUserIdRequest.ProtoReflect.Descriptor instead.
+func (*GetAllDecksByUserIdRequest) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetAllDecksByUserIdRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetAllDecksByUserIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserDecks     []*UserDeck            `protobuf:"bytes,1,rep,name=user_decks,json=userDecks,proto3" json:"user_decks,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllDecksByUserIdResponse) Reset() {
+	*x = GetAllDecksByUserIdResponse{}
+	mi := &file_user_user_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllDecksByUserIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllDecksByUserIdResponse) ProtoMessage() {}
+
+func (x *GetAllDecksByUserIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllDecksByUserIdResponse.ProtoReflect.Descriptor instead.
+func (*GetAllDecksByUserIdResponse) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetAllDecksByUserIdResponse) GetUserDecks() []*UserDeck {
+	if x != nil {
+		return x.UserDecks
+	}
+	return nil
+}
+
+type SetUserCurrentDeckRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	DeckId        int64                  `protobuf:"varint,2,opt,name=deck_id,json=deckId,proto3" json:"deck_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserCurrentDeckRequest) Reset() {
+	*x = SetUserCurrentDeckRequest{}
+	mi := &file_user_user_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserCurrentDeckRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserCurrentDeckRequest) ProtoMessage() {}
+
+func (x *SetUserCurrentDeckRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserCurrentDeckRequest.ProtoReflect.Descriptor instead.
+func (*SetUserCurrentDeckRequest) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *SetUserCurrentDeckRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *SetUserCurrentDeckRequest) GetDeckId() int64 {
+	if x != nil {
+		return x.DeckId
+	}
+	return 0
+}
+
+type SetUserCurrentDeckResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserCurrentDeckResponse) Reset() {
+	*x = SetUserCurrentDeckResponse{}
+	mi := &file_user_user_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserCurrentDeckResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserCurrentDeckResponse) ProtoMessage() {}
+
+func (x *SetUserCurrentDeckResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserCurrentDeckResponse.ProtoReflect.Descriptor instead.
+func (*SetUserCurrentDeckResponse) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *SetUserCurrentDeckResponse) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type UpdateUserAvailableDecksRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	DeckId        int64                  `protobuf:"varint,2,opt,name=deck_id,json=deckId,proto3" json:"deck_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateUserAvailableDecksRequest) Reset() {
+	*x = UpdateUserAvailableDecksRequest{}
+	mi := &file_user_user_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateUserAvailableDecksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateUserAvailableDecksRequest) ProtoMessage() {}
+
+func (x *UpdateUserAvailableDecksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateUserAvailableDecksRequest.ProtoReflect.Descriptor instead.
+func (*UpdateUserAvailableDecksRequest) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *UpdateUserAvailableDecksRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateUserAvailableDecksRequest) GetDeckId() int64 {
+	if x != nil {
+		return x.DeckId
+	}
+	return 0
+}
+
+type UpdateUserAvailableDecksResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserDecks     []*UserDeck            `protobuf:"bytes,1,rep,name=user_decks,json=userDecks,proto3" json:"user_decks,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateUserAvailableDecksResponse) Reset() {
+	*x = UpdateUserAvailableDecksResponse{}
+	mi := &file_user_user_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateUserAvailableDecksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateUserAvailableDecksResponse) ProtoMessage() {}
+
+func (x *UpdateUserAvailableDecksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateUserAvailableDecksResponse.ProtoReflect.Descriptor instead.
+func (*UpdateUserAvailableDecksResponse) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *UpdateUserAvailableDecksResponse) GetUserDecks() []*UserDeck {
+	if x != nil {
+		return x.UserDecks
+	}
+	return nil
+}
+
 var File_user_user_proto protoreflect.FileDescriptor
 
 const file_user_user_proto_rawDesc = "" +
 	"\n" +
-	"\x0fuser/user.proto\x12\x04user\x1a\x1fgoogle/protobuf/timestamp.proto\"\x82\x02\n" +
+	"\x0fuser/user.proto\x12\x04user\x1a\x1fgoogle/protobuf/timestamp.proto\"^\n" +
+	"\x04Deck\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1b\n" +
+	"\tdeck_name\x18\x02 \x01(\tR\bdeckName\x12)\n" +
+	"\x10deck_description\x18\x03 \x01(\tR\x0fdeckDescription\"M\n" +
+	"\bUserDeck\x12\x1e\n" +
+	"\x04deck\x18\x01 \x01(\v2\n" +
+	".user.DeckR\x04deck\x12!\n" +
+	"\fis_available\x18\x02 \x01(\bR\visAvailable\"\x82\x02\n" +
 	"\x11CreateUserRequest\x12\x17\n" +
 	"\achat_id\x18\x01 \x01(\x03R\x06chatId\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1d\n" +
@@ -988,7 +1476,28 @@ const file_user_user_proto_rawDesc = "" +
 	"\n" +
 	"start_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tstartDate\x125\n" +
 	"\bend_date\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\aendDate\x12\x18\n" +
-	"\aelement\x18\a \x01(\tR\aelement2\xda\x03\n" +
+	"\aelement\x18\a \x01(\tR\aelement\"/\n" +
+	"\x1dGetCurrentDeckByUserIdRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"@\n" +
+	"\x1eGetCurrentDeckByUserIdResponse\x12\x1e\n" +
+	"\x04deck\x18\x01 \x01(\v2\n" +
+	".user.DeckR\x04deck\",\n" +
+	"\x1aGetAllDecksByUserIdRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"L\n" +
+	"\x1bGetAllDecksByUserIdResponse\x12-\n" +
+	"\n" +
+	"user_decks\x18\x01 \x03(\v2\x0e.user.UserDeckR\tuserDecks\"D\n" +
+	"\x19SetUserCurrentDeckRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
+	"\adeck_id\x18\x02 \x01(\x03R\x06deckId\",\n" +
+	"\x1aSetUserCurrentDeckResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"J\n" +
+	"\x1fUpdateUserAvailableDecksRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
+	"\adeck_id\x18\x02 \x01(\x03R\x06deckId\"Q\n" +
+	" UpdateUserAvailableDecksResponse\x12-\n" +
+	"\n" +
+	"user_decks\x18\x01 \x03(\v2\x0e.user.UserDeckR\tuserDecks2\xdf\x06\n" +
 	"\x04User\x12?\n" +
 	"\n" +
 	"CreateUser\x12\x17.user.CreateUserRequest\x1a\x18.user.CreateUserResponse\x12B\n" +
@@ -996,7 +1505,11 @@ const file_user_user_proto_rawDesc = "" +
 	"\x0fGetUserSettings\x12\x1c.user.GetUserSettingsRequest\x1a\x1d.user.GetUserSettingsResponse\x12W\n" +
 	"\x12UpdateUserSettings\x12\x1f.user.UpdateUserSettingsRequest\x1a .user.UpdateUserSettingsResponse\x12N\n" +
 	"\x0fSetUserBirthday\x12\x1c.user.SetUserBirthdayRequest\x1a\x1d.user.SetUserBirthdayResponse\x12T\n" +
-	"\x11GetUserZodiacSign\x12\x1e.user.GetUserZodiacSignRequest\x1a\x1f.user.GetUserZodiacSignResponseB5Z3github.com/Kai120789/tarot_proto/protos/gen/go/userb\x06proto3"
+	"\x11GetUserZodiacSign\x12\x1e.user.GetUserZodiacSignRequest\x1a\x1f.user.GetUserZodiacSignResponse\x12c\n" +
+	"\x16GetCurrentDeckByUserId\x12#.user.GetCurrentDeckByUserIdRequest\x1a$.user.GetCurrentDeckByUserIdResponse\x12Z\n" +
+	"\x13GetAllDecksByUserId\x12 .user.GetAllDecksByUserIdRequest\x1a!.user.GetAllDecksByUserIdResponse\x12W\n" +
+	"\x12SetUserCurrentDeck\x12\x1f.user.SetUserCurrentDeckRequest\x1a .user.SetUserCurrentDeckResponse\x12i\n" +
+	"\x18UpdateUserAvailableDecks\x12%.user.UpdateUserAvailableDecksRequest\x1a&.user.UpdateUserAvailableDecksResponseB5Z3github.com/Kai120789/tarot_proto/protos/gen/go/userb\x06proto3"
 
 var (
 	file_user_user_proto_rawDescOnce sync.Once
@@ -1010,48 +1523,70 @@ func file_user_user_proto_rawDescGZIP() []byte {
 	return file_user_user_proto_rawDescData
 }
 
-var file_user_user_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_user_user_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_user_user_proto_goTypes = []any{
-	(*CreateUserRequest)(nil),          // 0: user.CreateUserRequest
-	(*CreateUserResponse)(nil),         // 1: user.CreateUserResponse
-	(*GetUserDataRequest)(nil),         // 2: user.GetUserDataRequest
-	(*GetUserDataResponse)(nil),        // 3: user.GetUserDataResponse
-	(*GetUserSettingsRequest)(nil),     // 4: user.GetUserSettingsRequest
-	(*GetUserSettingsResponse)(nil),    // 5: user.GetUserSettingsResponse
-	(*UpdateUserSettingsRequest)(nil),  // 6: user.UpdateUserSettingsRequest
-	(*UpdateUserSettingsResponse)(nil), // 7: user.UpdateUserSettingsResponse
-	(*SetUserBirthdayRequest)(nil),     // 8: user.SetUserBirthdayRequest
-	(*SetUserBirthdayResponse)(nil),    // 9: user.SetUserBirthdayResponse
-	(*GetUserZodiacSignRequest)(nil),   // 10: user.GetUserZodiacSignRequest
-	(*GetUserZodiacSignResponse)(nil),  // 11: user.GetUserZodiacSignResponse
-	(*timestamppb.Timestamp)(nil),      // 12: google.protobuf.Timestamp
+	(*Deck)(nil),                             // 0: user.Deck
+	(*UserDeck)(nil),                         // 1: user.UserDeck
+	(*CreateUserRequest)(nil),                // 2: user.CreateUserRequest
+	(*CreateUserResponse)(nil),               // 3: user.CreateUserResponse
+	(*GetUserDataRequest)(nil),               // 4: user.GetUserDataRequest
+	(*GetUserDataResponse)(nil),              // 5: user.GetUserDataResponse
+	(*GetUserSettingsRequest)(nil),           // 6: user.GetUserSettingsRequest
+	(*GetUserSettingsResponse)(nil),          // 7: user.GetUserSettingsResponse
+	(*UpdateUserSettingsRequest)(nil),        // 8: user.UpdateUserSettingsRequest
+	(*UpdateUserSettingsResponse)(nil),       // 9: user.UpdateUserSettingsResponse
+	(*SetUserBirthdayRequest)(nil),           // 10: user.SetUserBirthdayRequest
+	(*SetUserBirthdayResponse)(nil),          // 11: user.SetUserBirthdayResponse
+	(*GetUserZodiacSignRequest)(nil),         // 12: user.GetUserZodiacSignRequest
+	(*GetUserZodiacSignResponse)(nil),        // 13: user.GetUserZodiacSignResponse
+	(*GetCurrentDeckByUserIdRequest)(nil),    // 14: user.GetCurrentDeckByUserIdRequest
+	(*GetCurrentDeckByUserIdResponse)(nil),   // 15: user.GetCurrentDeckByUserIdResponse
+	(*GetAllDecksByUserIdRequest)(nil),       // 16: user.GetAllDecksByUserIdRequest
+	(*GetAllDecksByUserIdResponse)(nil),      // 17: user.GetAllDecksByUserIdResponse
+	(*SetUserCurrentDeckRequest)(nil),        // 18: user.SetUserCurrentDeckRequest
+	(*SetUserCurrentDeckResponse)(nil),       // 19: user.SetUserCurrentDeckResponse
+	(*UpdateUserAvailableDecksRequest)(nil),  // 20: user.UpdateUserAvailableDecksRequest
+	(*UpdateUserAvailableDecksResponse)(nil), // 21: user.UpdateUserAvailableDecksResponse
+	(*timestamppb.Timestamp)(nil),            // 22: google.protobuf.Timestamp
 }
 var file_user_user_proto_depIdxs = []int32{
-	12, // 0: user.CreateUserResponse.birthday:type_name -> google.protobuf.Timestamp
-	12, // 1: user.CreateUserResponse.registration_date:type_name -> google.protobuf.Timestamp
-	12, // 2: user.CreateUserResponse.last_enter_date:type_name -> google.protobuf.Timestamp
-	12, // 3: user.GetUserDataResponse.birthday:type_name -> google.protobuf.Timestamp
-	12, // 4: user.GetUserDataResponse.registration_date:type_name -> google.protobuf.Timestamp
-	12, // 5: user.GetUserDataResponse.last_enter_date:type_name -> google.protobuf.Timestamp
-	12, // 6: user.GetUserZodiacSignResponse.start_date:type_name -> google.protobuf.Timestamp
-	12, // 7: user.GetUserZodiacSignResponse.end_date:type_name -> google.protobuf.Timestamp
-	0,  // 8: user.User.CreateUser:input_type -> user.CreateUserRequest
-	2,  // 9: user.User.GetUserData:input_type -> user.GetUserDataRequest
-	4,  // 10: user.User.GetUserSettings:input_type -> user.GetUserSettingsRequest
-	6,  // 11: user.User.UpdateUserSettings:input_type -> user.UpdateUserSettingsRequest
-	8,  // 12: user.User.SetUserBirthday:input_type -> user.SetUserBirthdayRequest
-	10, // 13: user.User.GetUserZodiacSign:input_type -> user.GetUserZodiacSignRequest
-	1,  // 14: user.User.CreateUser:output_type -> user.CreateUserResponse
-	3,  // 15: user.User.GetUserData:output_type -> user.GetUserDataResponse
-	5,  // 16: user.User.GetUserSettings:output_type -> user.GetUserSettingsResponse
-	7,  // 17: user.User.UpdateUserSettings:output_type -> user.UpdateUserSettingsResponse
-	9,  // 18: user.User.SetUserBirthday:output_type -> user.SetUserBirthdayResponse
-	11, // 19: user.User.GetUserZodiacSign:output_type -> user.GetUserZodiacSignResponse
-	14, // [14:20] is the sub-list for method output_type
-	8,  // [8:14] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	0,  // 0: user.UserDeck.deck:type_name -> user.Deck
+	22, // 1: user.CreateUserResponse.birthday:type_name -> google.protobuf.Timestamp
+	22, // 2: user.CreateUserResponse.registration_date:type_name -> google.protobuf.Timestamp
+	22, // 3: user.CreateUserResponse.last_enter_date:type_name -> google.protobuf.Timestamp
+	22, // 4: user.GetUserDataResponse.birthday:type_name -> google.protobuf.Timestamp
+	22, // 5: user.GetUserDataResponse.registration_date:type_name -> google.protobuf.Timestamp
+	22, // 6: user.GetUserDataResponse.last_enter_date:type_name -> google.protobuf.Timestamp
+	22, // 7: user.GetUserZodiacSignResponse.start_date:type_name -> google.protobuf.Timestamp
+	22, // 8: user.GetUserZodiacSignResponse.end_date:type_name -> google.protobuf.Timestamp
+	0,  // 9: user.GetCurrentDeckByUserIdResponse.deck:type_name -> user.Deck
+	1,  // 10: user.GetAllDecksByUserIdResponse.user_decks:type_name -> user.UserDeck
+	1,  // 11: user.UpdateUserAvailableDecksResponse.user_decks:type_name -> user.UserDeck
+	2,  // 12: user.User.CreateUser:input_type -> user.CreateUserRequest
+	4,  // 13: user.User.GetUserData:input_type -> user.GetUserDataRequest
+	6,  // 14: user.User.GetUserSettings:input_type -> user.GetUserSettingsRequest
+	8,  // 15: user.User.UpdateUserSettings:input_type -> user.UpdateUserSettingsRequest
+	10, // 16: user.User.SetUserBirthday:input_type -> user.SetUserBirthdayRequest
+	12, // 17: user.User.GetUserZodiacSign:input_type -> user.GetUserZodiacSignRequest
+	14, // 18: user.User.GetCurrentDeckByUserId:input_type -> user.GetCurrentDeckByUserIdRequest
+	16, // 19: user.User.GetAllDecksByUserId:input_type -> user.GetAllDecksByUserIdRequest
+	18, // 20: user.User.SetUserCurrentDeck:input_type -> user.SetUserCurrentDeckRequest
+	20, // 21: user.User.UpdateUserAvailableDecks:input_type -> user.UpdateUserAvailableDecksRequest
+	3,  // 22: user.User.CreateUser:output_type -> user.CreateUserResponse
+	5,  // 23: user.User.GetUserData:output_type -> user.GetUserDataResponse
+	7,  // 24: user.User.GetUserSettings:output_type -> user.GetUserSettingsResponse
+	9,  // 25: user.User.UpdateUserSettings:output_type -> user.UpdateUserSettingsResponse
+	11, // 26: user.User.SetUserBirthday:output_type -> user.SetUserBirthdayResponse
+	13, // 27: user.User.GetUserZodiacSign:output_type -> user.GetUserZodiacSignResponse
+	15, // 28: user.User.GetCurrentDeckByUserId:output_type -> user.GetCurrentDeckByUserIdResponse
+	17, // 29: user.User.GetAllDecksByUserId:output_type -> user.GetAllDecksByUserIdResponse
+	19, // 30: user.User.SetUserCurrentDeck:output_type -> user.SetUserCurrentDeckResponse
+	21, // 31: user.User.UpdateUserAvailableDecks:output_type -> user.UpdateUserAvailableDecksResponse
+	22, // [22:32] is the sub-list for method output_type
+	12, // [12:22] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_user_user_proto_init() }
@@ -1059,15 +1594,15 @@ func file_user_user_proto_init() {
 	if File_user_user_proto != nil {
 		return
 	}
-	file_user_user_proto_msgTypes[1].OneofWrappers = []any{}
 	file_user_user_proto_msgTypes[3].OneofWrappers = []any{}
+	file_user_user_proto_msgTypes[5].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_user_user_proto_rawDesc), len(file_user_user_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
