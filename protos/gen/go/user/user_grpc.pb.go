@@ -19,16 +19,20 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	User_CreateUser_FullMethodName               = "/user.User/CreateUser"
-	User_GetUserData_FullMethodName              = "/user.User/GetUserData"
-	User_GetUserSettings_FullMethodName          = "/user.User/GetUserSettings"
-	User_UpdateUserSettings_FullMethodName       = "/user.User/UpdateUserSettings"
-	User_SetUserBirthday_FullMethodName          = "/user.User/SetUserBirthday"
-	User_GetUserZodiacSign_FullMethodName        = "/user.User/GetUserZodiacSign"
-	User_GetCurrentDeckByUserId_FullMethodName   = "/user.User/GetCurrentDeckByUserId"
-	User_GetAllDecksByUserId_FullMethodName      = "/user.User/GetAllDecksByUserId"
-	User_SetUserCurrentDeck_FullMethodName       = "/user.User/SetUserCurrentDeck"
-	User_UpdateUserAvailableDecks_FullMethodName = "/user.User/UpdateUserAvailableDecks"
+	User_CreateUser_FullMethodName                = "/user.User/CreateUser"
+	User_GetUserData_FullMethodName               = "/user.User/GetUserData"
+	User_GetUserSettings_FullMethodName           = "/user.User/GetUserSettings"
+	User_UpdateUserSettings_FullMethodName        = "/user.User/UpdateUserSettings"
+	User_SetUserBirthday_FullMethodName           = "/user.User/SetUserBirthday"
+	User_GetUserZodiacSign_FullMethodName         = "/user.User/GetUserZodiacSign"
+	User_GetCurrentDeckByUserId_FullMethodName    = "/user.User/GetCurrentDeckByUserId"
+	User_GetAllDecksByUserId_FullMethodName       = "/user.User/GetAllDecksByUserId"
+	User_SetUserCurrentDeck_FullMethodName        = "/user.User/SetUserCurrentDeck"
+	User_UpdateUserAvailableDecks_FullMethodName  = "/user.User/UpdateUserAvailableDecks"
+	User_GetCurrentThemeByUserId_FullMethodName   = "/user.User/GetCurrentThemeByUserId"
+	User_GetAllThemesByUserId_FullMethodName      = "/user.User/GetAllThemesByUserId"
+	User_SetUserCurrentTheme_FullMethodName       = "/user.User/SetUserCurrentTheme"
+	User_UpdateUserAvailableThemes_FullMethodName = "/user.User/UpdateUserAvailableThemes"
 )
 
 // UserClient is the client API for User service.
@@ -45,6 +49,10 @@ type UserClient interface {
 	GetAllDecksByUserId(ctx context.Context, in *GetAllDecksByUserIdRequest, opts ...grpc.CallOption) (*GetAllDecksByUserIdResponse, error)
 	SetUserCurrentDeck(ctx context.Context, in *SetUserCurrentDeckRequest, opts ...grpc.CallOption) (*SetUserCurrentDeckResponse, error)
 	UpdateUserAvailableDecks(ctx context.Context, in *UpdateUserAvailableDecksRequest, opts ...grpc.CallOption) (*UpdateUserAvailableDecksResponse, error)
+	GetCurrentThemeByUserId(ctx context.Context, in *GetCurrentThemeByUserIdRequest, opts ...grpc.CallOption) (*GetCurrentThemeByUserIdResponse, error)
+	GetAllThemesByUserId(ctx context.Context, in *GetAllThemesByUserIdRequest, opts ...grpc.CallOption) (*GetAllThemesByUserIdResponse, error)
+	SetUserCurrentTheme(ctx context.Context, in *SetUserCurrentThemeRequest, opts ...grpc.CallOption) (*SetUserCurrentThemeResponse, error)
+	UpdateUserAvailableThemes(ctx context.Context, in *UpdateUserAvailableThemesRequest, opts ...grpc.CallOption) (*UpdateUserAvailableThemesResponse, error)
 }
 
 type userClient struct {
@@ -155,6 +163,46 @@ func (c *userClient) UpdateUserAvailableDecks(ctx context.Context, in *UpdateUse
 	return out, nil
 }
 
+func (c *userClient) GetCurrentThemeByUserId(ctx context.Context, in *GetCurrentThemeByUserIdRequest, opts ...grpc.CallOption) (*GetCurrentThemeByUserIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentThemeByUserIdResponse)
+	err := c.cc.Invoke(ctx, User_GetCurrentThemeByUserId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userClient) GetAllThemesByUserId(ctx context.Context, in *GetAllThemesByUserIdRequest, opts ...grpc.CallOption) (*GetAllThemesByUserIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllThemesByUserIdResponse)
+	err := c.cc.Invoke(ctx, User_GetAllThemesByUserId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userClient) SetUserCurrentTheme(ctx context.Context, in *SetUserCurrentThemeRequest, opts ...grpc.CallOption) (*SetUserCurrentThemeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserCurrentThemeResponse)
+	err := c.cc.Invoke(ctx, User_SetUserCurrentTheme_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userClient) UpdateUserAvailableThemes(ctx context.Context, in *UpdateUserAvailableThemesRequest, opts ...grpc.CallOption) (*UpdateUserAvailableThemesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateUserAvailableThemesResponse)
+	err := c.cc.Invoke(ctx, User_UpdateUserAvailableThemes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServer is the server API for User service.
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility.
@@ -169,6 +217,10 @@ type UserServer interface {
 	GetAllDecksByUserId(context.Context, *GetAllDecksByUserIdRequest) (*GetAllDecksByUserIdResponse, error)
 	SetUserCurrentDeck(context.Context, *SetUserCurrentDeckRequest) (*SetUserCurrentDeckResponse, error)
 	UpdateUserAvailableDecks(context.Context, *UpdateUserAvailableDecksRequest) (*UpdateUserAvailableDecksResponse, error)
+	GetCurrentThemeByUserId(context.Context, *GetCurrentThemeByUserIdRequest) (*GetCurrentThemeByUserIdResponse, error)
+	GetAllThemesByUserId(context.Context, *GetAllThemesByUserIdRequest) (*GetAllThemesByUserIdResponse, error)
+	SetUserCurrentTheme(context.Context, *SetUserCurrentThemeRequest) (*SetUserCurrentThemeResponse, error)
+	UpdateUserAvailableThemes(context.Context, *UpdateUserAvailableThemesRequest) (*UpdateUserAvailableThemesResponse, error)
 	mustEmbedUnimplementedUserServer()
 }
 
@@ -208,6 +260,18 @@ func (UnimplementedUserServer) SetUserCurrentDeck(context.Context, *SetUserCurre
 }
 func (UnimplementedUserServer) UpdateUserAvailableDecks(context.Context, *UpdateUserAvailableDecksRequest) (*UpdateUserAvailableDecksResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserAvailableDecks not implemented")
+}
+func (UnimplementedUserServer) GetCurrentThemeByUserId(context.Context, *GetCurrentThemeByUserIdRequest) (*GetCurrentThemeByUserIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentThemeByUserId not implemented")
+}
+func (UnimplementedUserServer) GetAllThemesByUserId(context.Context, *GetAllThemesByUserIdRequest) (*GetAllThemesByUserIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllThemesByUserId not implemented")
+}
+func (UnimplementedUserServer) SetUserCurrentTheme(context.Context, *SetUserCurrentThemeRequest) (*SetUserCurrentThemeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetUserCurrentTheme not implemented")
+}
+func (UnimplementedUserServer) UpdateUserAvailableThemes(context.Context, *UpdateUserAvailableThemesRequest) (*UpdateUserAvailableThemesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserAvailableThemes not implemented")
 }
 func (UnimplementedUserServer) mustEmbedUnimplementedUserServer() {}
 func (UnimplementedUserServer) testEmbeddedByValue()              {}
@@ -410,6 +474,78 @@ func _User_UpdateUserAvailableDecks_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _User_GetCurrentThemeByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentThemeByUserIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).GetCurrentThemeByUserId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_GetCurrentThemeByUserId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).GetCurrentThemeByUserId(ctx, req.(*GetCurrentThemeByUserIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _User_GetAllThemesByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllThemesByUserIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).GetAllThemesByUserId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_GetAllThemesByUserId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).GetAllThemesByUserId(ctx, req.(*GetAllThemesByUserIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _User_SetUserCurrentTheme_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserCurrentThemeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).SetUserCurrentTheme(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_SetUserCurrentTheme_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).SetUserCurrentTheme(ctx, req.(*SetUserCurrentThemeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _User_UpdateUserAvailableThemes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserAvailableThemesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).UpdateUserAvailableThemes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_UpdateUserAvailableThemes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).UpdateUserAvailableThemes(ctx, req.(*UpdateUserAvailableThemesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // User_ServiceDesc is the grpc.ServiceDesc for User service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -456,6 +592,22 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateUserAvailableDecks",
 			Handler:    _User_UpdateUserAvailableDecks_Handler,
+		},
+		{
+			MethodName: "GetCurrentThemeByUserId",
+			Handler:    _User_GetCurrentThemeByUserId_Handler,
+		},
+		{
+			MethodName: "GetAllThemesByUserId",
+			Handler:    _User_GetAllThemesByUserId_Handler,
+		},
+		{
+			MethodName: "SetUserCurrentTheme",
+			Handler:    _User_SetUserCurrentTheme_Handler,
+		},
+		{
+			MethodName: "UpdateUserAvailableThemes",
+			Handler:    _User_UpdateUserAvailableThemes_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

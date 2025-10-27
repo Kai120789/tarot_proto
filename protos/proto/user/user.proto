@@ -17,6 +17,10 @@ service User {
 	rpc GetAllDecksByUserId(GetAllDecksByUserIdRequest) returns (GetAllDecksByUserIdResponse);
 	rpc SetUserCurrentDeck(SetUserCurrentDeckRequest) returns (SetUserCurrentDeckResponse);
 	rpc UpdateUserAvailableDecks(UpdateUserAvailableDecksRequest) returns (UpdateUserAvailableDecksResponse);
+    rpc GetCurrentThemeByUserId(GetCurrentThemeByUserIdRequest) returns (GetCurrentThemeByUserIdResponse);
+	rpc GetAllThemesByUserId(GetAllThemesByUserIdRequest) returns (GetAllThemesByUserIdResponse);
+	rpc SetUserCurrentTheme(SetUserCurrentThemeRequest) returns (SetUserCurrentThemeResponse);
+	rpc UpdateUserAvailableThemes(UpdateUserAvailableThemesRequest) returns (UpdateUserAvailableThemesResponse);
 }
 
 message Deck {
@@ -27,6 +31,18 @@ message Deck {
 
 message UserDeck {
   Deck deck = 1;
+  bool is_available = 2;
+}
+
+message Theme {
+  int64 id = 1;
+  string theme_name = 2;
+  string bg_image = 3;
+  string color = 4;
+}
+
+message UserTheme {
+  Deck theme = 1;
   bool is_available = 2;
 }
 
@@ -147,4 +163,38 @@ message UpdateUserAvailableDecksRequest {
 
 message UpdateUserAvailableDecksResponse {
     repeated UserDeck user_decks = 1;
+}
+
+message GetCurrentThemeByUserIdRequest {
+    int64 id = 1;
+}
+
+message GetCurrentThemeByUserIdResponse {
+    Theme theme = 1;
+}
+
+message GetAllThemesByUserIdRequest {
+    int64 id = 1;
+}
+
+message GetAllThemesByUserIdResponse {
+    repeated UserTheme user_theme = 1;
+}
+
+message SetUserCurrentThemeRequest {
+    int64 id = 1;
+    int64 theme_id = 2;
+}
+
+message SetUserCurrentThemeResponse {
+    Theme theme = 1;
+}
+
+message UpdateUserAvailableThemesRequest {
+    int64 id = 1;
+    int64 theme_id = 2;
+}
+
+message UpdateUserAvailableThemesResponse {
+    repeated UserTheme user_themes = 1;
 }
