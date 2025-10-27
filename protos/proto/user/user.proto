@@ -42,7 +42,7 @@ message Theme {
 }
 
 message UserTheme {
-  Deck theme = 1;
+  Theme theme = 1;
   bool is_available = 2;
 }
 

@@ -204,7 +204,7 @@ func (x *Theme) GetColor() string {
 
 type UserTheme struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Theme         *Deck                  `protobuf:"bytes,1,opt,name=theme,proto3" json:"theme,omitempty"`
+	Theme         *Theme                 `protobuf:"bytes,1,opt,name=theme,proto3" json:"theme,omitempty"`
 	IsAvailable   bool                   `protobuf:"varint,2,opt,name=is_available,json=isAvailable,proto3" json:"is_available,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -240,7 +240,7 @@ func (*UserTheme) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *UserTheme) GetTheme() *Deck {
+func (x *UserTheme) GetTheme() *Theme {
 	if x != nil {
 		return x.Theme
 	}
@@ -1880,10 +1880,9 @@ const file_user_user_proto_rawDesc = "" +
 	"\n" +
 	"theme_name\x18\x02 \x01(\tR\tthemeName\x12\x19\n" +
 	"\bbg_image\x18\x03 \x01(\tR\abgImage\x12\x14\n" +
-	"\x05color\x18\x04 \x01(\tR\x05color\"P\n" +
-	"\tUserTheme\x12 \n" +
-	"\x05theme\x18\x01 \x01(\v2\n" +
-	".user.DeckR\x05theme\x12!\n" +
+	"\x05color\x18\x04 \x01(\tR\x05color\"Q\n" +
+	"\tUserTheme\x12!\n" +
+	"\x05theme\x18\x01 \x01(\v2\v.user.ThemeR\x05theme\x12!\n" +
 	"\fis_available\x18\x02 \x01(\bR\visAvailable\"\x82\x02\n" +
 	"\x11CreateUserRequest\x12\x17\n" +
 	"\achat_id\x18\x01 \x01(\x03R\x06chatId\x12\x1a\n" +
@@ -2084,7 +2083,7 @@ var file_user_user_proto_goTypes = []any{
 }
 var file_user_user_proto_depIdxs = []int32{
 	0,  // 0: user.UserDeck.deck:type_name -> user.Deck
-	0,  // 1: user.UserTheme.theme:type_name -> user.Deck
+	2,  // 1: user.UserTheme.theme:type_name -> user.Theme
 	32, // 2: user.CreateUserResponse.birthday:type_name -> google.protobuf.Timestamp
 	32, // 3: user.CreateUserResponse.registration_date:type_name -> google.protobuf.Timestamp
 	32, // 4: user.CreateUserResponse.last_enter_date:type_name -> google.protobuf.Timestamp
