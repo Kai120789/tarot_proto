@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user;
 
-option go_package = "github.com/Kai120789/tarot_proto/protos/gen/go/sso";
+option go_package = "github.com/Kai120789/tarot_proto/protos/gen/go/user";
 
 import "google/protobuf/timestamp.proto";
 

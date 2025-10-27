@@ -4,15 +4,16 @@
 // 	protoc        v6.33.0
 // source: user/user.proto
 
-package sso
+package user
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 )
 
 const (
@@ -996,7 +997,7 @@ const file_user_user_proto_rawDesc = "" +
 	"\x0fGetUserSettings\x12\x1c.user.GetUserSettingsRequest\x1a\x1d.user.GetUserSettingsResponse\x12W\n" +
 	"\x12UpdateUserSettings\x12\x1f.user.UpdateUserSettingsRequest\x1a .user.UpdateUserSettingsResponse\x12N\n" +
 	"\x0fSetUserBirthday\x12\x1c.user.SetUserBirthdayRequest\x1a\x1d.user.SetUserBirthdayResponse\x12T\n" +
-	"\x11GetUserZodiacSign\x12\x1e.user.GetUserZodiacSignRequest\x1a\x1f.user.GetUserZodiacSignResponseB4Z2github.com/Kai120789/tarot_proto/protos/gen/go/ssob\x06proto3"
+	"\x11GetUserZodiacSign\x12\x1e.user.GetUserZodiacSignRequest\x1a\x1f.user.GetUserZodiacSignResponseB4Z2github.com/Kai120789/tarot_proto/protos/gen/go/userb\x06proto3"
 
 var (
 	file_user_user_proto_rawDescOnce sync.Once
