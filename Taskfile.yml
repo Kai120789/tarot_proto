@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:  
+  default:
+    cmds:  
+      - task: generate-user
+      - task: generate-matrix
+      - task: generate-all
+  generate-user:
+    aliases:
+      - gen  
+    desc: "Generate code from proto files"  
+    cmds:
+      - protoc -I protos/proto protos/proto/user/user.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
+  generate-matrix:
+    aliases:
+      - gen  
+    desc: "Generate code from proto files"  
+    cmds:
+      - protoc -I protos/proto protos/proto/matrix/matrix.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
+  generate-all:
+    aliases:
+      - gene
+    desc: "Generate code from proto files" 
+    cmds:
+      - task: generate-user
+      - task: generate-matrix
