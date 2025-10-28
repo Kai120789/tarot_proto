@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package matrix;
+
+option go_package = "github.com/Kai120789/tarot_proto/protos/gen/go/matrix";
+
+service Matrix {
+    rpc CalculateSimpleMatrix (CalculateSimpleMatrixRequest) returns (CalculateSimpleMatrixResponse);
+    rpc CalculateFullMatrix (CalculateFullMatrixRequest) returns (CalculateFullMatrixResponse);
+}
+
+message MatrixArcan {
+	int64 AracnId = 1;  
+	string ArcanaName = 2; 
+	string ArcanaImage = 3;
+	string Meaning = 4;
+	string Value = 5;
+}
+
+message MatrixSimple {
+	repeated OneArcaneWithPosition Arcanes = 1;  
+	repeated int64 MatrixValues = 2;
+}
+
+message MatrixFull {
+	repeated ArcanesWithPosition Arcanes = 1;  
+	repeated int64 MatrixValues = 2;
+}
+
+message ArcanesWithPosition {
+	string Position = 1;
+	repeated MatrixArcan Arcanes = 2;
+}
+
+message OneArcaneWithPosition {
+	string Position = 1;
+	MatrixArcan Arcane = 2; 
+}
+
+message CalculateSimpleMatrixRequest {
+    int64 Day = 1;
+    int64 Month = 2;
+    int64 Year = 3;
+}
+
+message CalculateSimpleMatrixResponse {
+    MatrixSimple MatrixSimple = 1;
+}
+
+message CalculateFullMatrixRequest {
+    int64 Day = 1;
+    int64 Month = 2;
+    int64 Year = 3;
+}
+
+message CalculateFullMatrixResponse {
+    MatrixFull MatrixFull = 1;
+}
