@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package cards;
+
+option go_package = "github.com/Kai120789/tarot_proto/protos/gen/go/cards";
+
+service Cards {
+    rpc CreateSpread (CreateSpreadRequest) returns (CreateSpreadResponse);
+    rpc GetOneSpread (GetOneSpreadRequest) returns (GetOneSpreadResponse);
+    rpc GetAllSpreads (GetAllSpreadsRequest) returns (GetAllSpreadsResponse);
+    rpc ExpandSpread (ExpandSpreadRequest) returns (ExpandSpreadResponse);
+    rpc AddAdditionalSpread (AddAdditionalSpreadRequest) returns (AddAdditionalSpreadResponse);
+}
+
+message SpreadHistory {
+    int64 Id = 1;
+    TarotResponse Spread = 2;
+    repeated TarotResponse AdditionalSpreads = 3;
+}
+
+message TarotResponse {
+    repeated CardValue Cards = 1;
+    string Template = 2;
+    int64 Count = 3;
+    string Category = 4;
+    int64 DeckId = 5;
+}
+
+message CardValue {
+    int64 CardId = 1;
+    string CardName = 2;
+    string Value = 3;
+}
+
+message CreateSpreadRequest {
+    int64 UserId = 1;
+    int64 Count = 2;
+    int64 Category = 3;
+    int64 DeckId = 4;
+}
+
+message CreateSpreadResponse {
+    TarotResponse TarotResponse = 1;
+}
+
+message GetOneSpreadRequest {
+    string SpreadId = 1;
+    int64 UserId = 2;
+}
+
+message GetOneSpreadResponse {
+    SpreadHistory SpreadHistory = 1;
+}
+
+message GetAllSpreadsRequest {
+    int64 UserId = 1;
+}
+
+message GetAllSpreadsResponse {
+    repeated SpreadHistory SpreadHistory = 1;
+}
+
+message ExpandSpreadRequest {
+    string SpreadId = 1;
+    int64 UserId = 2;
+    int64 ExpandCount = 3;
+}
+
+message ExpandSpreadResponse {
+    SpreadHistory SpreadHistory = 1;
+}
+
+message AddAdditionalSpreadRequest {
+    string SpreadId = 1;
+    int64 UserId = 2;
+    int64 AdditionalCount = 3;
+}
+
+message AddAdditionalSpreadResponse {
+    SpreadHistory SpreadHistory = 1;
+}

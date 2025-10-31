@@ -496,7 +496,7 @@ func (x *CreateUserResponse) GetLastEnterDate() *timestamppb.Timestamp {
 
 type GetUserDataRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -540,19 +540,19 @@ func (x *GetUserDataRequest) GetId() int64 {
 
 type GetUserDataResponse struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
-	Id               int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	ChatId           int64                  `protobuf:"varint,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Username         string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
-	FirstName        string                 `protobuf:"bytes,4,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
-	LastName         string                 `protobuf:"bytes,5,opt,name=last_name,json=lastName,proto3" json:"last_name,omitempty"`
-	Language         string                 `protobuf:"bytes,6,opt,name=language,proto3" json:"language,omitempty"`
-	Avatar           string                 `protobuf:"bytes,7,opt,name=avatar,proto3" json:"avatar,omitempty"`
-	IsPremium        bool                   `protobuf:"varint,8,opt,name=is_premium,json=isPremium,proto3" json:"is_premium,omitempty"`
-	Birthday         *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=birthday,proto3,oneof" json:"birthday,omitempty"`
-	CityId           *int64                 `protobuf:"varint,10,opt,name=city_id,json=cityId,proto3,oneof" json:"city_id,omitempty"`
-	FriendId         *int64                 `protobuf:"varint,11,opt,name=friend_id,json=friendId,proto3,oneof" json:"friend_id,omitempty"`
-	RegistrationDate *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=registration_date,json=registrationDate,proto3,oneof" json:"registration_date,omitempty"`
-	LastEnterDate    *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=last_enter_date,json=lastEnterDate,proto3,oneof" json:"last_enter_date,omitempty"`
+	Id               int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	ChatId           int64                  `protobuf:"varint,2,opt,name=ChatId,proto3" json:"ChatId,omitempty"`
+	Username         string                 `protobuf:"bytes,3,opt,name=Username,proto3" json:"Username,omitempty"`
+	FirstName        string                 `protobuf:"bytes,4,opt,name=FirstName,proto3" json:"FirstName,omitempty"`
+	LastName         string                 `protobuf:"bytes,5,opt,name=LastName,proto3" json:"LastName,omitempty"`
+	Language         string                 `protobuf:"bytes,6,opt,name=Language,proto3" json:"Language,omitempty"`
+	Avatar           string                 `protobuf:"bytes,7,opt,name=Avatar,proto3" json:"Avatar,omitempty"`
+	IsPremium        bool                   `protobuf:"varint,8,opt,name=IsPremium,proto3" json:"IsPremium,omitempty"`
+	Birthday         *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=Birthday,proto3,oneof" json:"Birthday,omitempty"`
+	CityId           *int64                 `protobuf:"varint,10,opt,name=CityId,proto3,oneof" json:"CityId,omitempty"`
+	FriendId         *int64                 `protobuf:"varint,11,opt,name=FriendId,proto3,oneof" json:"FriendId,omitempty"`
+	RegistrationDate *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=RegistrationDate,proto3,oneof" json:"RegistrationDate,omitempty"`
+	LastEnterDate    *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=LastEnterDate,proto3,oneof" json:"LastEnterDate,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -680,7 +680,7 @@ func (x *GetUserDataResponse) GetLastEnterDate() *timestamppb.Timestamp {
 
 type GetUserSettingsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -724,8 +724,8 @@ func (x *GetUserSettingsRequest) GetId() int64 {
 
 type GetUserSettingsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	IsSubscribe   bool                   `protobuf:"varint,1,opt,name=is_subscribe,json=isSubscribe,proto3" json:"is_subscribe,omitempty"`
-	IsHoroscopeOn bool                   `protobuf:"varint,2,opt,name=is_horoscope_on,json=isHoroscopeOn,proto3" json:"is_horoscope_on,omitempty"`
+	IsSubscribe   bool                   `protobuf:"varint,1,opt,name=IsSubscribe,proto3" json:"IsSubscribe,omitempty"`
+	IsHoroscopeOn bool                   `protobuf:"varint,2,opt,name=IsHoroscopeOn,proto3" json:"IsHoroscopeOn,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -776,9 +776,9 @@ func (x *GetUserSettingsResponse) GetIsHoroscopeOn() bool {
 
 type UpdateUserSettingsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	IsSubscribe   bool                   `protobuf:"varint,2,opt,name=is_subscribe,json=isSubscribe,proto3" json:"is_subscribe,omitempty"`
-	IsHoroscopeOn bool                   `protobuf:"varint,3,opt,name=is_horoscope_on,json=isHoroscopeOn,proto3" json:"is_horoscope_on,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	IsSubscribe   bool                   `protobuf:"varint,2,opt,name=IsSubscribe,proto3" json:"IsSubscribe,omitempty"`
+	IsHoroscopeOn bool                   `protobuf:"varint,3,opt,name=IsHoroscopeOn,proto3" json:"IsHoroscopeOn,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -836,8 +836,8 @@ func (x *UpdateUserSettingsRequest) GetIsHoroscopeOn() bool {
 
 type UpdateUserSettingsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	IsSubscribe   bool                   `protobuf:"varint,1,opt,name=is_subscribe,json=isSubscribe,proto3" json:"is_subscribe,omitempty"`
-	IsHoroscopeOn bool                   `protobuf:"varint,2,opt,name=is_horoscope_on,json=isHoroscopeOn,proto3" json:"is_horoscope_on,omitempty"`
+	IsSubscribe   bool                   `protobuf:"varint,1,opt,name=IsSubscribe,proto3" json:"IsSubscribe,omitempty"`
+	IsHoroscopeOn bool                   `protobuf:"varint,2,opt,name=IsHoroscopeOn,proto3" json:"IsHoroscopeOn,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -888,10 +888,10 @@ func (x *UpdateUserSettingsResponse) GetIsHoroscopeOn() bool {
 
 type SetUserBirthdayRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Day           int64                  `protobuf:"varint,2,opt,name=day,proto3" json:"day,omitempty"`
-	Month         int64                  `protobuf:"varint,3,opt,name=month,proto3" json:"month,omitempty"`
-	Year          int64                  `protobuf:"varint,4,opt,name=year,proto3" json:"year,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	Day           int64                  `protobuf:"varint,2,opt,name=Day,proto3" json:"Day,omitempty"`
+	Month         int64                  `protobuf:"varint,3,opt,name=Month,proto3" json:"Month,omitempty"`
+	Year          int64                  `protobuf:"varint,4,opt,name=Year,proto3" json:"Year,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -992,7 +992,7 @@ func (*SetUserBirthdayResponse) Descriptor() ([]byte, []int) {
 
 type GetUserZodiacSignRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1036,13 +1036,13 @@ func (x *GetUserZodiacSignRequest) GetId() int64 {
 
 type GetUserZodiacSignResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	SignEn        string                 `protobuf:"bytes,2,opt,name=sign_en,json=signEn,proto3" json:"sign_en,omitempty"`
-	SignRu        string                 `protobuf:"bytes,3,opt,name=sign_ru,json=signRu,proto3" json:"sign_ru,omitempty"`
-	Symbol        string                 `protobuf:"bytes,4,opt,name=symbol,proto3" json:"symbol,omitempty"`
-	StartDate     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
-	EndDate       *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
-	Element       string                 `protobuf:"bytes,7,opt,name=element,proto3" json:"element,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	SignEn        string                 `protobuf:"bytes,2,opt,name=SignEn,proto3" json:"SignEn,omitempty"`
+	SignRu        string                 `protobuf:"bytes,3,opt,name=SignRu,proto3" json:"SignRu,omitempty"`
+	Symbol        string                 `protobuf:"bytes,4,opt,name=Symbol,proto3" json:"Symbol,omitempty"`
+	StartDate     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=StartDate,proto3" json:"StartDate,omitempty"`
+	EndDate       *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=EndDate,proto3" json:"EndDate,omitempty"`
+	Element       string                 `protobuf:"bytes,7,opt,name=Element,proto3" json:"Element,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1128,7 +1128,7 @@ func (x *GetUserZodiacSignResponse) GetElement() string {
 
 type GetCurrentDeckByUserIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1172,7 +1172,7 @@ func (x *GetCurrentDeckByUserIdRequest) GetId() int64 {
 
 type GetCurrentDeckByUserIdResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Deck          *Deck                  `protobuf:"bytes,1,opt,name=deck,proto3" json:"deck,omitempty"`
+	Deck          *Deck                  `protobuf:"bytes,1,opt,name=Deck,proto3" json:"Deck,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1216,7 +1216,7 @@ func (x *GetCurrentDeckByUserIdResponse) GetDeck() *Deck {
 
 type GetAllDecksByUserIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1260,7 +1260,7 @@ func (x *GetAllDecksByUserIdRequest) GetId() int64 {
 
 type GetAllDecksByUserIdResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserDecks     []*UserDeck            `protobuf:"bytes,1,rep,name=user_decks,json=userDecks,proto3" json:"user_decks,omitempty"`
+	UserDecks     []*UserDeck            `protobuf:"bytes,1,rep,name=UserDecks,proto3" json:"UserDecks,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1304,8 +1304,8 @@ func (x *GetAllDecksByUserIdResponse) GetUserDecks() []*UserDeck {
 
 type SetUserCurrentDeckRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	DeckId        int64                  `protobuf:"varint,2,opt,name=deck_id,json=deckId,proto3" json:"deck_id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	DeckId        int64                  `protobuf:"varint,2,opt,name=DeckId,proto3" json:"DeckId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1356,7 +1356,7 @@ func (x *SetUserCurrentDeckRequest) GetDeckId() int64 {
 
 type SetUserCurrentDeckResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Deck          *Deck                  `protobuf:"bytes,1,opt,name=deck,proto3" json:"deck,omitempty"`
+	Deck          *Deck                  `protobuf:"bytes,1,opt,name=Deck,proto3" json:"Deck,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1400,8 +1400,8 @@ func (x *SetUserCurrentDeckResponse) GetDeck() *Deck {
 
 type UpdateUserAvailableDecksRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	DeckId        int64                  `protobuf:"varint,2,opt,name=deck_id,json=deckId,proto3" json:"deck_id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	DeckId        int64                  `protobuf:"varint,2,opt,name=DeckId,proto3" json:"DeckId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1452,7 +1452,7 @@ func (x *UpdateUserAvailableDecksRequest) GetDeckId() int64 {
 
 type UpdateUserAvailableDecksResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserDecks     []*UserDeck            `protobuf:"bytes,1,rep,name=user_decks,json=userDecks,proto3" json:"user_decks,omitempty"`
+	UserDecks     []*UserDeck            `protobuf:"bytes,1,rep,name=UserDecks,proto3" json:"UserDecks,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1496,7 +1496,7 @@ func (x *UpdateUserAvailableDecksResponse) GetUserDecks() []*UserDeck {
 
 type GetCurrentThemeByUserIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1540,7 +1540,7 @@ func (x *GetCurrentThemeByUserIdRequest) GetId() int64 {
 
 type GetCurrentThemeByUserIdResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Theme         *Theme                 `protobuf:"bytes,1,opt,name=theme,proto3" json:"theme,omitempty"`
+	Theme         *Theme                 `protobuf:"bytes,1,opt,name=Theme,proto3" json:"Theme,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1584,7 +1584,7 @@ func (x *GetCurrentThemeByUserIdResponse) GetTheme() *Theme {
 
 type GetAllThemesByUserIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1628,7 +1628,7 @@ func (x *GetAllThemesByUserIdRequest) GetId() int64 {
 
 type GetAllThemesByUserIdResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserThemes    []*UserTheme           `protobuf:"bytes,1,rep,name=user_themes,json=userThemes,proto3" json:"user_themes,omitempty"`
+	UserThemes    []*UserTheme           `protobuf:"bytes,1,rep,name=UserThemes,proto3" json:"UserThemes,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1672,8 +1672,8 @@ func (x *GetAllThemesByUserIdResponse) GetUserThemes() []*UserTheme {
 
 type SetUserCurrentThemeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	ThemeId       int64                  `protobuf:"varint,2,opt,name=theme_id,json=themeId,proto3" json:"theme_id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	ThemeId       int64                  `protobuf:"varint,2,opt,name=ThemeId,proto3" json:"ThemeId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1724,7 +1724,7 @@ func (x *SetUserCurrentThemeRequest) GetThemeId() int64 {
 
 type SetUserCurrentThemeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Theme         *Theme                 `protobuf:"bytes,1,opt,name=theme,proto3" json:"theme,omitempty"`
+	Theme         *Theme                 `protobuf:"bytes,1,opt,name=Theme,proto3" json:"Theme,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1768,8 +1768,8 @@ func (x *SetUserCurrentThemeResponse) GetTheme() *Theme {
 
 type UpdateUserAvailableThemesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	ThemeId       int64                  `protobuf:"varint,2,opt,name=theme_id,json=themeId,proto3" json:"theme_id,omitempty"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	ThemeId       int64                  `protobuf:"varint,2,opt,name=ThemeId,proto3" json:"ThemeId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1820,7 +1820,7 @@ func (x *UpdateUserAvailableThemesRequest) GetThemeId() int64 {
 
 type UpdateUserAvailableThemesResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserThemes    []*UserTheme           `protobuf:"bytes,1,rep,name=user_themes,json=userThemes,proto3" json:"user_themes,omitempty"`
+	UserThemes    []*UserTheme           `protobuf:"bytes,1,rep,name=UserThemes,proto3" json:"UserThemes,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1920,102 +1920,97 @@ const file_user_user_proto_rawDesc = "" +
 	"\x12_registration_dateB\x12\n" +
 	"\x10_last_enter_date\"$\n" +
 	"\x12GetUserDataRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"\xce\x04\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\"\xc0\x04\n" +
 	"\x13GetUserDataResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
-	"\achat_id\x18\x02 \x01(\x03R\x06chatId\x12\x1a\n" +
-	"\busername\x18\x03 \x01(\tR\busername\x12\x1d\n" +
-	"\n" +
-	"first_name\x18\x04 \x01(\tR\tfirstName\x12\x1b\n" +
-	"\tlast_name\x18\x05 \x01(\tR\blastName\x12\x1a\n" +
-	"\blanguage\x18\x06 \x01(\tR\blanguage\x12\x16\n" +
-	"\x06avatar\x18\a \x01(\tR\x06avatar\x12\x1d\n" +
-	"\n" +
-	"is_premium\x18\b \x01(\bR\tisPremium\x12;\n" +
-	"\bbirthday\x18\t \x01(\v2\x1a.google.protobuf.TimestampH\x00R\bbirthday\x88\x01\x01\x12\x1c\n" +
-	"\acity_id\x18\n" +
-	" \x01(\x03H\x01R\x06cityId\x88\x01\x01\x12 \n" +
-	"\tfriend_id\x18\v \x01(\x03H\x02R\bfriendId\x88\x01\x01\x12L\n" +
-	"\x11registration_date\x18\f \x01(\v2\x1a.google.protobuf.TimestampH\x03R\x10registrationDate\x88\x01\x01\x12G\n" +
-	"\x0flast_enter_date\x18\r \x01(\v2\x1a.google.protobuf.TimestampH\x04R\rlastEnterDate\x88\x01\x01B\v\n" +
-	"\t_birthdayB\n" +
-	"\n" +
-	"\b_city_idB\f\n" +
-	"\n" +
-	"_friend_idB\x14\n" +
-	"\x12_registration_dateB\x12\n" +
-	"\x10_last_enter_date\"(\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x16\n" +
+	"\x06ChatId\x18\x02 \x01(\x03R\x06ChatId\x12\x1a\n" +
+	"\bUsername\x18\x03 \x01(\tR\bUsername\x12\x1c\n" +
+	"\tFirstName\x18\x04 \x01(\tR\tFirstName\x12\x1a\n" +
+	"\bLastName\x18\x05 \x01(\tR\bLastName\x12\x1a\n" +
+	"\bLanguage\x18\x06 \x01(\tR\bLanguage\x12\x16\n" +
+	"\x06Avatar\x18\a \x01(\tR\x06Avatar\x12\x1c\n" +
+	"\tIsPremium\x18\b \x01(\bR\tIsPremium\x12;\n" +
+	"\bBirthday\x18\t \x01(\v2\x1a.google.protobuf.TimestampH\x00R\bBirthday\x88\x01\x01\x12\x1b\n" +
+	"\x06CityId\x18\n" +
+	" \x01(\x03H\x01R\x06CityId\x88\x01\x01\x12\x1f\n" +
+	"\bFriendId\x18\v \x01(\x03H\x02R\bFriendId\x88\x01\x01\x12K\n" +
+	"\x10RegistrationDate\x18\f \x01(\v2\x1a.google.protobuf.TimestampH\x03R\x10RegistrationDate\x88\x01\x01\x12E\n" +
+	"\rLastEnterDate\x18\r \x01(\v2\x1a.google.protobuf.TimestampH\x04R\rLastEnterDate\x88\x01\x01B\v\n" +
+	"\t_BirthdayB\t\n" +
+	"\a_CityIdB\v\n" +
+	"\t_FriendIdB\x13\n" +
+	"\x11_RegistrationDateB\x10\n" +
+	"\x0e_LastEnterDate\"(\n" +
 	"\x16GetUserSettingsRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"d\n" +
-	"\x17GetUserSettingsResponse\x12!\n" +
-	"\fis_subscribe\x18\x01 \x01(\bR\visSubscribe\x12&\n" +
-	"\x0fis_horoscope_on\x18\x02 \x01(\bR\risHoroscopeOn\"v\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\"a\n" +
+	"\x17GetUserSettingsResponse\x12 \n" +
+	"\vIsSubscribe\x18\x01 \x01(\bR\vIsSubscribe\x12$\n" +
+	"\rIsHoroscopeOn\x18\x02 \x01(\bR\rIsHoroscopeOn\"s\n" +
 	"\x19UpdateUserSettingsRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12!\n" +
-	"\fis_subscribe\x18\x02 \x01(\bR\visSubscribe\x12&\n" +
-	"\x0fis_horoscope_on\x18\x03 \x01(\bR\risHoroscopeOn\"g\n" +
-	"\x1aUpdateUserSettingsResponse\x12!\n" +
-	"\fis_subscribe\x18\x01 \x01(\bR\visSubscribe\x12&\n" +
-	"\x0fis_horoscope_on\x18\x02 \x01(\bR\risHoroscopeOn\"d\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12 \n" +
+	"\vIsSubscribe\x18\x02 \x01(\bR\vIsSubscribe\x12$\n" +
+	"\rIsHoroscopeOn\x18\x03 \x01(\bR\rIsHoroscopeOn\"d\n" +
+	"\x1aUpdateUserSettingsResponse\x12 \n" +
+	"\vIsSubscribe\x18\x01 \x01(\bR\vIsSubscribe\x12$\n" +
+	"\rIsHoroscopeOn\x18\x02 \x01(\bR\rIsHoroscopeOn\"d\n" +
 	"\x16SetUserBirthdayRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x10\n" +
-	"\x03day\x18\x02 \x01(\x03R\x03day\x12\x14\n" +
-	"\x05month\x18\x03 \x01(\x03R\x05month\x12\x12\n" +
-	"\x04year\x18\x04 \x01(\x03R\x04year\"\x19\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x10\n" +
+	"\x03Day\x18\x02 \x01(\x03R\x03Day\x12\x14\n" +
+	"\x05Month\x18\x03 \x01(\x03R\x05Month\x12\x12\n" +
+	"\x04Year\x18\x04 \x01(\x03R\x04Year\"\x19\n" +
 	"\x17SetUserBirthdayResponse\"*\n" +
 	"\x18GetUserZodiacSignRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"\x81\x02\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\"\xfd\x01\n" +
 	"\x19GetUserZodiacSignResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
-	"\asign_en\x18\x02 \x01(\tR\x06signEn\x12\x17\n" +
-	"\asign_ru\x18\x03 \x01(\tR\x06signRu\x12\x16\n" +
-	"\x06symbol\x18\x04 \x01(\tR\x06symbol\x129\n" +
-	"\n" +
-	"start_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tstartDate\x125\n" +
-	"\bend_date\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\aendDate\x12\x18\n" +
-	"\aelement\x18\a \x01(\tR\aelement\"/\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x16\n" +
+	"\x06SignEn\x18\x02 \x01(\tR\x06SignEn\x12\x16\n" +
+	"\x06SignRu\x18\x03 \x01(\tR\x06SignRu\x12\x16\n" +
+	"\x06Symbol\x18\x04 \x01(\tR\x06Symbol\x128\n" +
+	"\tStartDate\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tStartDate\x124\n" +
+	"\aEndDate\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\aEndDate\x12\x18\n" +
+	"\aElement\x18\a \x01(\tR\aElement\"/\n" +
 	"\x1dGetCurrentDeckByUserIdRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"@\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\"@\n" +
 	"\x1eGetCurrentDeckByUserIdResponse\x12\x1e\n" +
-	"\x04deck\x18\x01 \x01(\v2\n" +
-	".user.DeckR\x04deck\",\n" +
+	"\x04Deck\x18\x01 \x01(\v2\n" +
+	".user.DeckR\x04Deck\",\n" +
 	"\x1aGetAllDecksByUserIdRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"L\n" +
-	"\x1bGetAllDecksByUserIdResponse\x12-\n" +
-	"\n" +
-	"user_decks\x18\x01 \x03(\v2\x0e.user.UserDeckR\tuserDecks\"D\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\"K\n" +
+	"\x1bGetAllDecksByUserIdResponse\x12,\n" +
+	"\tUserDecks\x18\x01 \x03(\v2\x0e.user.UserDeckR\tUserDecks\"C\n" +
 	"\x19SetUserCurrentDeckRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
-	"\adeck_id\x18\x02 \x01(\x03R\x06deckId\"<\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x16\n" +
+	"\x06DeckId\x18\x02 \x01(\x03R\x06DeckId\"<\n" +
 	"\x1aSetUserCurrentDeckResponse\x12\x1e\n" +
-	"\x04deck\x18\x01 \x01(\v2\n" +
-	".user.DeckR\x04deck\"J\n" +
+	"\x04Deck\x18\x01 \x01(\v2\n" +
+	".user.DeckR\x04Deck\"I\n" +
 	"\x1fUpdateUserAvailableDecksRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
-	"\adeck_id\x18\x02 \x01(\x03R\x06deckId\"Q\n" +
-	" UpdateUserAvailableDecksResponse\x12-\n" +
-	"\n" +
-	"user_decks\x18\x01 \x03(\v2\x0e.user.UserDeckR\tuserDecks\"0\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x16\n" +
+	"\x06DeckId\x18\x02 \x01(\x03R\x06DeckId\"P\n" +
+	" UpdateUserAvailableDecksResponse\x12,\n" +
+	"\tUserDecks\x18\x01 \x03(\v2\x0e.user.UserDeckR\tUserDecks\"0\n" +
 	"\x1eGetCurrentThemeByUserIdRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"D\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\"D\n" +
 	"\x1fGetCurrentThemeByUserIdResponse\x12!\n" +
-	"\x05theme\x18\x01 \x01(\v2\v.user.ThemeR\x05theme\"-\n" +
+	"\x05Theme\x18\x01 \x01(\v2\v.user.ThemeR\x05Theme\"-\n" +
 	"\x1bGetAllThemesByUserIdRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"P\n" +
-	"\x1cGetAllThemesByUserIdResponse\x120\n" +
-	"\vuser_themes\x18\x01 \x03(\v2\x0f.user.UserThemeR\n" +
-	"userThemes\"G\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\"O\n" +
+	"\x1cGetAllThemesByUserIdResponse\x12/\n" +
+	"\n" +
+	"UserThemes\x18\x01 \x03(\v2\x0f.user.UserThemeR\n" +
+	"UserThemes\"F\n" +
 	"\x1aSetUserCurrentThemeRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n" +
-	"\btheme_id\x18\x02 \x01(\x03R\athemeId\"@\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x18\n" +
+	"\aThemeId\x18\x02 \x01(\x03R\aThemeId\"@\n" +
 	"\x1bSetUserCurrentThemeResponse\x12!\n" +
-	"\x05theme\x18\x01 \x01(\v2\v.user.ThemeR\x05theme\"M\n" +
+	"\x05Theme\x18\x01 \x01(\v2\v.user.ThemeR\x05Theme\"L\n" +
 	" UpdateUserAvailableThemesRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n" +
-	"\btheme_id\x18\x02 \x01(\x03R\athemeId\"U\n" +
-	"!UpdateUserAvailableThemesResponse\x120\n" +
-	"\vuser_themes\x18\x01 \x03(\v2\x0f.user.UserThemeR\n" +
-	"userThemes2\xf0\t\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x18\n" +
+	"\aThemeId\x18\x02 \x01(\x03R\aThemeId\"T\n" +
+	"!UpdateUserAvailableThemesResponse\x12/\n" +
+	"\n" +
+	"UserThemes\x18\x01 \x03(\v2\x0f.user.UserThemeR\n" +
+	"UserThemes2\xf0\t\n" +
 	"\x04User\x12?\n" +
 	"\n" +
 	"CreateUser\x12\x17.user.CreateUserRequest\x1a\x18.user.CreateUserResponse\x12B\n" +
@@ -2087,19 +2082,19 @@ var file_user_user_proto_depIdxs = []int32{
 	32, // 2: user.CreateUserResponse.birthday:type_name -> google.protobuf.Timestamp
 	32, // 3: user.CreateUserResponse.registration_date:type_name -> google.protobuf.Timestamp
 	32, // 4: user.CreateUserResponse.last_enter_date:type_name -> google.protobuf.Timestamp
-	32, // 5: user.GetUserDataResponse.birthday:type_name -> google.protobuf.Timestamp
-	32, // 6: user.GetUserDataResponse.registration_date:type_name -> google.protobuf.Timestamp
-	32, // 7: user.GetUserDataResponse.last_enter_date:type_name -> google.protobuf.Timestamp
-	32, // 8: user.GetUserZodiacSignResponse.start_date:type_name -> google.protobuf.Timestamp
-	32, // 9: user.GetUserZodiacSignResponse.end_date:type_name -> google.protobuf.Timestamp
-	0,  // 10: user.GetCurrentDeckByUserIdResponse.deck:type_name -> user.Deck
-	1,  // 11: user.GetAllDecksByUserIdResponse.user_decks:type_name -> user.UserDeck
-	0,  // 12: user.SetUserCurrentDeckResponse.deck:type_name -> user.Deck
-	1,  // 13: user.UpdateUserAvailableDecksResponse.user_decks:type_name -> user.UserDeck
-	2,  // 14: user.GetCurrentThemeByUserIdResponse.theme:type_name -> user.Theme
-	3,  // 15: user.GetAllThemesByUserIdResponse.user_themes:type_name -> user.UserTheme
-	2,  // 16: user.SetUserCurrentThemeResponse.theme:type_name -> user.Theme
-	3,  // 17: user.UpdateUserAvailableThemesResponse.user_themes:type_name -> user.UserTheme
+	32, // 5: user.GetUserDataResponse.Birthday:type_name -> google.protobuf.Timestamp
+	32, // 6: user.GetUserDataResponse.RegistrationDate:type_name -> google.protobuf.Timestamp
+	32, // 7: user.GetUserDataResponse.LastEnterDate:type_name -> google.protobuf.Timestamp
+	32, // 8: user.GetUserZodiacSignResponse.StartDate:type_name -> google.protobuf.Timestamp
+	32, // 9: user.GetUserZodiacSignResponse.EndDate:type_name -> google.protobuf.Timestamp
+	0,  // 10: user.GetCurrentDeckByUserIdResponse.Deck:type_name -> user.Deck
+	1,  // 11: user.GetAllDecksByUserIdResponse.UserDecks:type_name -> user.UserDeck
+	0,  // 12: user.SetUserCurrentDeckResponse.Deck:type_name -> user.Deck
+	1,  // 13: user.UpdateUserAvailableDecksResponse.UserDecks:type_name -> user.UserDeck
+	2,  // 14: user.GetCurrentThemeByUserIdResponse.Theme:type_name -> user.Theme
+	3,  // 15: user.GetAllThemesByUserIdResponse.UserThemes:type_name -> user.UserTheme
+	2,  // 16: user.SetUserCurrentThemeResponse.Theme:type_name -> user.Theme
+	3,  // 17: user.UpdateUserAvailableThemesResponse.UserThemes:type_name -> user.UserTheme
 	4,  // 18: user.User.CreateUser:input_type -> user.CreateUserRequest
 	6,  // 19: user.User.GetUserData:input_type -> user.GetUserDataRequest
 	8,  // 20: user.User.GetUserSettings:input_type -> user.GetUserSettingsRequest

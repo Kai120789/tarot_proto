@@ -74,127 +74,127 @@ message CreateUserResponse {
 }
 
 message GetUserDataRequest {
-    int64 id = 1;
+    int64 Id = 1;
 }
 message GetUserDataResponse {
-    int64 id = 1;
-    int64 chat_id = 2;
-    string username = 3;
-    string first_name = 4;
-    string last_name = 5;
-    string language = 6;
-    string avatar = 7;
-    bool is_premium = 8;
-    optional google.protobuf.Timestamp birthday = 9;
-    optional int64 city_id = 10;
-    optional int64 friend_id = 11;
-    optional google.protobuf.Timestamp registration_date = 12;
-    optional google.protobuf.Timestamp last_enter_date = 13;
+    int64 Id = 1;
+    int64 ChatId = 2;
+    string Username = 3;
+    string FirstName = 4;
+    string LastName = 5;
+    string Language = 6;
+    string Avatar = 7;
+    bool IsPremium = 8;
+    optional google.protobuf.Timestamp Birthday = 9;
+    optional int64 CityId = 10;
+    optional int64 FriendId = 11;
+    optional google.protobuf.Timestamp RegistrationDate = 12;
+    optional google.protobuf.Timestamp LastEnterDate = 13;
 }
 
 message GetUserSettingsRequest {
-    int64 id = 1;
+    int64 Id = 1;
 }
 message GetUserSettingsResponse {
-    bool is_subscribe = 1;
-    bool is_horoscope_on = 2;
+    bool IsSubscribe = 1;
+    bool IsHoroscopeOn = 2;
 }
 
 message UpdateUserSettingsRequest {
-    int64 id = 1;
-    bool is_subscribe = 2;
-    bool is_horoscope_on = 3;
+    int64 Id = 1;
+    bool IsSubscribe = 2;
+    bool IsHoroscopeOn = 3;
 }
 message UpdateUserSettingsResponse {
-    bool is_subscribe = 1;
-    bool is_horoscope_on = 2;
+    bool IsSubscribe = 1;
+    bool IsHoroscopeOn = 2;
 }
 
 message SetUserBirthdayRequest {
-    int64 id = 1;
-    int64 day = 2;
-    int64 month = 3;
-    int64 year = 4;
+    int64 Id = 1;
+    int64 Day = 2;
+    int64 Month = 3;
+    int64 Year = 4;
 }
 message SetUserBirthdayResponse {}
 
 message GetUserZodiacSignRequest {
-    int64 id = 1;
+    int64 Id = 1;
 }
 message GetUserZodiacSignResponse {
-    int64 id = 1;
-    string sign_en = 2;
-    string sign_ru = 3;
-    string symbol = 4;
-    google.protobuf.Timestamp start_date = 5;
-    google.protobuf.Timestamp end_date = 6;
-    string element = 7;
+    int64 Id = 1;
+    string SignEn = 2;
+    string SignRu = 3;
+    string Symbol = 4;
+    google.protobuf.Timestamp StartDate = 5;
+    google.protobuf.Timestamp EndDate = 6;
+    string Element = 7;
 }
 
 message GetCurrentDeckByUserIdRequest {
-    int64 id = 1;
+    int64 Id = 1;
 }
 
 message GetCurrentDeckByUserIdResponse {
-    Deck deck = 1;
+    Deck Deck = 1;
 }
 
 message GetAllDecksByUserIdRequest {
-    int64 id = 1;
+    int64 Id = 1;
 }
 
 message GetAllDecksByUserIdResponse {
-    repeated UserDeck user_decks = 1;
+    repeated UserDeck UserDecks = 1;
 }
 
 message SetUserCurrentDeckRequest {
-    int64 id = 1;
-    int64 deck_id = 2;
+    int64 Id = 1;
+    int64 DeckId = 2;
 }
 
 message SetUserCurrentDeckResponse {
-    Deck deck = 1;
+    Deck Deck = 1;
 }
 
 message UpdateUserAvailableDecksRequest {
-    int64 id = 1;
-    int64 deck_id = 2;
+    int64 Id = 1;
+    int64 DeckId = 2;
 }
 
 message UpdateUserAvailableDecksResponse {
-    repeated UserDeck user_decks = 1;
+    repeated UserDeck UserDecks = 1;
 }
 
 message GetCurrentThemeByUserIdRequest {
-    int64 id = 1;
+    int64 Id = 1;
 }
 
 message GetCurrentThemeByUserIdResponse {
-    Theme theme = 1;
+    Theme Theme = 1;
 }
 
 message GetAllThemesByUserIdRequest {
-    int64 id = 1;
+    int64 Id = 1;
 }
 
 message GetAllThemesByUserIdResponse {
-    repeated UserTheme user_themes = 1;
+    repeated UserTheme UserThemes = 1;
 }
 
 message SetUserCurrentThemeRequest {
-    int64 id = 1;
-    int64 theme_id = 2;
+    int64 Id = 1;
+    int64 ThemeId = 2;
 }
 
 message SetUserCurrentThemeResponse {
-    Theme theme = 1;
+    Theme Theme = 1;
 }
 
 message UpdateUserAvailableThemesRequest {
-    int64 id = 1;
-    int64 theme_id = 2;
+    int64 Id = 1;
+    int64 ThemeId = 2;
 }
 
 message UpdateUserAvailableThemesResponse {
-    repeated UserTheme user_themes = 1;
+    repeated UserTheme UserThemes = 1;
 }
