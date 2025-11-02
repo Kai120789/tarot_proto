@@ -40,7 +40,7 @@ message CreateSpreadRequest {
 }
 
 message CreateSpreadResponse {
-    TarotResponse TarotResponse = 1;
+    SpreadHistory SpreadHistory = 1;
 }
 
 message GetOneSpreadRequest {

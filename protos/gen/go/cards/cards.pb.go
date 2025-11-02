@@ -287,7 +287,7 @@ func (x *CreateSpreadRequest) GetDeckId() int64 {
 
 type CreateSpreadResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TarotResponse *TarotResponse         `protobuf:"bytes,1,opt,name=TarotResponse,proto3" json:"TarotResponse,omitempty"`
+	SpreadHistory *SpreadHistory         `protobuf:"bytes,1,opt,name=SpreadHistory,proto3" json:"SpreadHistory,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -322,9 +322,9 @@ func (*CreateSpreadResponse) Descriptor() ([]byte, []int) {
 	return file_cards_cards_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *CreateSpreadResponse) GetTarotResponse() *TarotResponse {
+func (x *CreateSpreadResponse) GetSpreadHistory() *SpreadHistory {
 	if x != nil {
-		return x.TarotResponse
+		return x.SpreadHistory
 	}
 	return nil
 }
@@ -746,7 +746,7 @@ const file_cards_cards_proto_rawDesc = "" +
 	"\bCategory\x18\x03 \x01(\tR\bCategory\x12\x16\n" +
 	"\x06DeckId\x18\x04 \x01(\x03R\x06DeckId\"R\n" +
 	"\x14CreateSpreadResponse\x12:\n" +
-	"\rTarotResponse\x18\x01 \x01(\v2\x14.cards.TarotResponseR\rTarotResponse\"I\n" +
+	"\rSpreadHistory\x18\x01 \x01(\v2\x14.cards.SpreadHistoryR\rSpreadHistory\"I\n" +
 	"\x13GetOneSpreadRequest\x12\x1a\n" +
 	"\bSpreadId\x18\x01 \x01(\tR\bSpreadId\x12\x16\n" +
 	"\x06UserId\x18\x02 \x01(\x03R\x06UserId\"R\n" +
@@ -807,7 +807,7 @@ var file_cards_cards_proto_depIdxs = []int32{
 	1,  // 0: cards.SpreadHistory.Spread:type_name -> cards.TarotResponse
 	1,  // 1: cards.SpreadHistory.AdditionalSpreads:type_name -> cards.TarotResponse
 	2,  // 2: cards.TarotResponse.Cards:type_name -> cards.CardValue
-	1,  // 3: cards.CreateSpreadResponse.TarotResponse:type_name -> cards.TarotResponse
+	0,  // 3: cards.CreateSpreadResponse.SpreadHistory:type_name -> cards.SpreadHistory
 	0,  // 4: cards.GetOneSpreadResponse.SpreadHistory:type_name -> cards.SpreadHistory
 	0,  // 5: cards.GetAllSpreadsResponse.SpreadHistory:type_name -> cards.SpreadHistory
 	0,  // 6: cards.ExpandSpreadResponse.SpreadHistory:type_name -> cards.SpreadHistory
