@@ -221,7 +221,7 @@ type CreateSpreadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        int64                  `protobuf:"varint,1,opt,name=UserId,proto3" json:"UserId,omitempty"`
 	Count         int64                  `protobuf:"varint,2,opt,name=Count,proto3" json:"Count,omitempty"`
-	Category      int64                  `protobuf:"varint,3,opt,name=Category,proto3" json:"Category,omitempty"`
+	Category      string                 `protobuf:"bytes,3,opt,name=Category,proto3" json:"Category,omitempty"`
 	DeckId        int64                  `protobuf:"varint,4,opt,name=DeckId,proto3" json:"DeckId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -271,11 +271,11 @@ func (x *CreateSpreadRequest) GetCount() int64 {
 	return 0
 }
 
-func (x *CreateSpreadRequest) GetCategory() int64 {
+func (x *CreateSpreadRequest) GetCategory() string {
 	if x != nil {
 		return x.Category
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateSpreadRequest) GetDeckId() int64 {
@@ -743,7 +743,7 @@ const file_cards_cards_proto_rawDesc = "" +
 	"\x13CreateSpreadRequest\x12\x16\n" +
 	"\x06UserId\x18\x01 \x01(\x03R\x06UserId\x12\x14\n" +
 	"\x05Count\x18\x02 \x01(\x03R\x05Count\x12\x1a\n" +
-	"\bCategory\x18\x03 \x01(\x03R\bCategory\x12\x16\n" +
+	"\bCategory\x18\x03 \x01(\tR\bCategory\x12\x16\n" +
 	"\x06DeckId\x18\x04 \x01(\x03R\x06DeckId\"R\n" +
 	"\x14CreateSpreadResponse\x12:\n" +
 	"\rTarotResponse\x18\x01 \x01(\v2\x14.cards.TarotResponseR\rTarotResponse\"I\n" +
