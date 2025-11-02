@@ -23,7 +23,7 @@ const (
 
 type SpreadHistory struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
-	Id                int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	Id                string                 `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`
 	Spread            *TarotResponse         `protobuf:"bytes,2,opt,name=Spread,proto3" json:"Spread,omitempty"`
 	AdditionalSpreads []*TarotResponse       `protobuf:"bytes,3,rep,name=AdditionalSpreads,proto3" json:"AdditionalSpreads,omitempty"`
 	unknownFields     protoimpl.UnknownFields
@@ -60,11 +60,11 @@ func (*SpreadHistory) Descriptor() ([]byte, []int) {
 	return file_cards_cards_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *SpreadHistory) GetId() int64 {
+func (x *SpreadHistory) GetId() string {
 	if x != nil {
 		return x.Id
 	}
-	return 0
+	return ""
 }
 
 func (x *SpreadHistory) GetSpread() *TarotResponse {
@@ -727,7 +727,7 @@ const file_cards_cards_proto_rawDesc = "" +
 	"\n" +
 	"\x11cards/cards.proto\x12\x05cards\"\x91\x01\n" +
 	"\rSpreadHistory\x12\x0e\n" +
-	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12,\n" +
+	"\x02Id\x18\x01 \x01(\tR\x02Id\x12,\n" +
 	"\x06Spread\x18\x02 \x01(\v2\x14.cards.TarotResponseR\x06Spread\x12B\n" +
 	"\x11AdditionalSpreads\x18\x03 \x03(\v2\x14.cards.TarotResponseR\x11AdditionalSpreads\"\x9d\x01\n" +
 	"\rTarotResponse\x12&\n" +

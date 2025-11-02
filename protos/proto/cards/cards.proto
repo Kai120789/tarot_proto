@@ -13,7 +13,7 @@ service Cards {
 }
 
 message SpreadHistory {
-    int64 Id = 1;
+    string Id = 1;
     TarotResponse Spread = 2;
     repeated TarotResponse AdditionalSpreads = 3;
 }
