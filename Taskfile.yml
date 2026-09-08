@@ -1,34 +1,46 @@
 version: '3'
 
-tasks:  
+tasks:
   default:
-    cmds:  
-      - task: generate-user
-      - task: generate-matrix
+    cmds:
       - task: generate-all
   generate-user:
-    aliases:
-      - gen  
-    desc: "Generate code from proto files"  
+    desc: "Generate user proto"
     cmds:
       - protoc -I protos/proto protos/proto/user/user.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
   generate-matrix:
-    aliases:
-      - gen  
-    desc: "Generate code from proto files"  
+    desc: "Generate matrix proto"
     cmds:
       - protoc -I protos/proto protos/proto/matrix/matrix.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
   generate-cards:
-    aliases:
-      - gen  
-    desc: "Generate code from proto files"  
+    desc: "Generate cards proto"
     cmds:
       - protoc -I protos/proto protos/proto/cards/cards.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
+  generate-horoscope:
+    desc: "Generate horoscope proto"
+    cmds:
+      - protoc -I protos/proto protos/proto/horoscope/horoscope.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
+  generate-natal:
+    desc: "Generate natal proto"
+    cmds:
+      - protoc -I protos/proto protos/proto/natal/natal.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
+  generate-match:
+    desc: "Generate match proto"
+    cmds:
+      - protoc -I protos/proto protos/proto/match/match.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
+  generate-achieve:
+    desc: "Generate achieve proto"
+    cmds:
+      - protoc -I protos/proto protos/proto/achieve/achieve.proto --go_out=./protos/gen/go --go_opt=paths=source_relative --go-grpc_out=./protos/gen/go/ --go-grpc_opt=paths=source_relative
   generate-all:
     aliases:
       - gene
-    desc: "Generate code from proto files" 
+    desc: "Generate code from proto files"
     cmds:
       - task: generate-user
       - task: generate-matrix
       - task: generate-cards
+      - task: generate-horoscope
+      - task: generate-natal
+      - task: generate-match
+      - task: generate-achieve
