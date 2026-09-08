@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package horoscope;
+
+option go_package = "github.com/Kai120789/tarot_proto/protos/gen/go/horoscope";
+
+service Horoscope {
+    rpc GetDailyHoroscope (GetDailyHoroscopeRequest) returns (GetDailyHoroscopeResponse);
+}
+
+message GetDailyHoroscopeRequest {
+    string Sign = 1;
+    string Lang = 2;
+}
+
+message GetDailyHoroscopeResponse {
+    string ZodiacSign = 1;
+    string Title = 2;
+    string Text = 3;
+    string Date = 4;
+}
