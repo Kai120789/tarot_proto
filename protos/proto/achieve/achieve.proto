@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package achieve;
+
+option go_package = "github.com/Kai120789/tarot_proto/protos/gen/go/achieve";
+
+service Achieve {
+    rpc ListAchievements (ListAchievementsRequest) returns (ListAchievementsResponse);
+    rpc ClaimAchievement (ClaimAchievementRequest) returns (ClaimAchievementResponse);
+    rpc ApplyEvent (ApplyEventRequest) returns (ApplyEventResponse);
+}
+
+message Achievement {
+    string Slug = 1;
+    string Title = 2;
+    string Description = 3;
+    string Category = 4;
+    string Icon = 5;
+    int32 Bronze = 6;
+    int32 Silver = 7;
+    int32 Gold = 8;
+    int32 Progress = 9;
+    int32 UnlockedTier = 10;
+    int32 ClaimedTier = 11;
+    int32 NextTier = 12;
+    int32 NextThreshold = 13;
+}
+
+message Event {
+    string Id = 1;
+    string Type = 2;
+    int64 UserId = 3;
+    string Date = 4;
+    string SpreadId = 5;
+    string Category = 6;
+    int64 Count = 7;
+    repeated int64 CardIds = 8;
+}
+
+message ListAchievementsRequest {
+    int64 UserId = 1;
+}
+
+message ListAchievementsResponse {
+    repeated Achievement Achievements = 1;
+}
+
+message ClaimAchievementRequest {
+    int64 UserId = 1;
+    string Slug = 2;
+}
+
+message ClaimAchievementResponse {
+    repeated Achievement Achievements = 1;
+}
+
+message ApplyEventRequest {
+    Event Event = 1;
+}
+
+message ApplyEventResponse {}
