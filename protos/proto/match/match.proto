@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package match;
+
+option go_package = "github.com/Kai120789/tarot_proto/protos/gen/go/match";
+
+service Match {
+    rpc Compat (CompatRequest) returns (CompatResponse);
+}
+
+message Person {
+    string Name = 1;
+    string Gender = 2;
+    string Date = 3;
+    string Time = 4;
+    string City = 5;
+    double Lat = 6;
+    double Lng = 7;
+    string Tz = 8;
+}
+
+message Body {
+    string Id = 1;
+    string Name = 2;
+    string Glyph = 3;
+    string Sign = 4;
+    string SignName = 5;
+    string SignGlyph = 6;
+    string Element = 7;
+    string ElementName = 8;
+    double Degree = 9;
+}
+
+message PersonView {
+    string Name = 1;
+    string Gender = 2;
+    Body Sun = 3;
+    Body Moon = 4;
+    Body Venus = 5;
+    Body Mars = 6;
+}
+
+message Block {
+    string Id = 1;
+    string Title = 2;
+    string Text = 3;
+}
+
+message Aspect {
+    string APlanet = 1;
+    string BPlanet = 2;
+    string AName = 3;
+    string BName = 4;
+    string Type = 5;
+    string Label = 6;
+    double Orb = 7;
+    string Text = 8;
+}
+
+message Result {
+    string Mode = 1;
+    int32 Score = 2;
+    string ScoreLabel = 3;
+    string Headline = 4;
+    string Summary = 5;
+    PersonView A = 6;
+    PersonView B = 7;
+    repeated Block Blocks = 8;
+    repeated Aspect Aspects = 9;
+}
+
+message CompatRequest {
+    string Mode = 1;
+    string Lang = 2;
+    Person A = 3;
+    Person B = 4;
+}
+
+message CompatResponse {
+    Result Result = 1;
+}
