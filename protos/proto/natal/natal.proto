@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package natal;
+
+option go_package = "github.com/Kai120789/tarot_proto/protos/gen/go/natal";
+
+service Natal {
+    rpc ListCities (ListCitiesRequest) returns (ListCitiesResponse);
+    rpc GetProfile (GetProfileRequest) returns (GetProfileResponse);
+    rpc SaveProfile (SaveProfileRequest) returns (SaveProfileResponse);
+    rpc GetChart (GetChartRequest) returns (GetChartResponse);
+}
+
+message City {
+    string Id = 1;
+    string NameRu = 2;
+    string NameEn = 3;
+    string Country = 4;
+    string CountryRu = 5;
+    string CountryEn = 6;
+    double Lat = 7;
+    double Lng = 8;
+    string Tz = 9;
+}
+
+message Profile {
+    int64 UserId = 1;
+    string BirthTime = 2;
+    string City = 3;
+    double Lat = 4;
+    double Lng = 5;
+    string Tz = 6;
+}
+
+message Placement {
+    string Id = 1;
+    string Name = 2;
+    string Glyph = 3;
+    string Sign = 4;
+    string SignName = 5;
+    string SignGlyph = 6;
+    double Degree = 7;
+    double Longitude = 8;
+    int32 House = 9;
+    bool Retrograde = 10;
+    string Text = 11;
+}
+
+message Aspect {
+    string A = 1;
+    string B = 2;
+    string Type = 3;
+    string Label = 4;
+    double Orb = 5;
+}
+
+message Chart {
+    string Datetime = 1;
+    string City = 2;
+    Placement Ascendant = 3;
+    Placement Midheaven = 4;
+    repeated Placement Planets = 5;
+    repeated Aspect Aspects = 6;
+}
+
+message ListCitiesRequest {
+    string Query = 1;
+}
+
+message ListCitiesResponse {
+    repeated City Cities = 1;
+}
+
+message GetProfileRequest {
+    int64 UserId = 1;
+}
+
+message GetProfileResponse {
+    Profile Profile = 1;
+}
+
+message SaveProfileRequest {
+    Profile Profile = 1;
+}
+
+message SaveProfileResponse {
+    Profile Profile = 1;
+}
+
+message GetChartRequest {
+    string Date = 1;
+    string Time = 2;
+    double Lat = 3;
+    double Lng = 4;
+    string Tz = 5;
+    string City = 6;
+    string Lang = 7;
+}
+
+message GetChartResponse {
+    Chart Chart = 1;
+}
