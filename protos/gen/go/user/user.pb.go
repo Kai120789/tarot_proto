@@ -1862,6 +1862,362 @@ func (x *UpdateUserAvailableThemesResponse) GetUserThemes() []*UserTheme {
 	return nil
 }
 
+type MailingRecipient struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatId        int64                  `protobuf:"varint,1,opt,name=ChatId,proto3" json:"ChatId,omitempty"`
+	IsSubscribe   bool                   `protobuf:"varint,2,opt,name=IsSubscribe,proto3" json:"IsSubscribe,omitempty"`
+	IsHoroscopeOn bool                   `protobuf:"varint,3,opt,name=IsHoroscopeOn,proto3" json:"IsHoroscopeOn,omitempty"`
+	SignEn        string                 `protobuf:"bytes,4,opt,name=SignEn,proto3" json:"SignEn,omitempty"`
+	SignRu        string                 `protobuf:"bytes,5,opt,name=SignRu,proto3" json:"SignRu,omitempty"`
+	Language      string                 `protobuf:"bytes,6,opt,name=Language,proto3" json:"Language,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MailingRecipient) Reset() {
+	*x = MailingRecipient{}
+	mi := &file_user_user_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MailingRecipient) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MailingRecipient) ProtoMessage() {}
+
+func (x *MailingRecipient) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MailingRecipient.ProtoReflect.Descriptor instead.
+func (*MailingRecipient) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *MailingRecipient) GetChatId() int64 {
+	if x != nil {
+		return x.ChatId
+	}
+	return 0
+}
+
+func (x *MailingRecipient) GetIsSubscribe() bool {
+	if x != nil {
+		return x.IsSubscribe
+	}
+	return false
+}
+
+func (x *MailingRecipient) GetIsHoroscopeOn() bool {
+	if x != nil {
+		return x.IsHoroscopeOn
+	}
+	return false
+}
+
+func (x *MailingRecipient) GetSignEn() string {
+	if x != nil {
+		return x.SignEn
+	}
+	return ""
+}
+
+func (x *MailingRecipient) GetSignRu() string {
+	if x != nil {
+		return x.SignRu
+	}
+	return ""
+}
+
+func (x *MailingRecipient) GetLanguage() string {
+	if x != nil {
+		return x.Language
+	}
+	return ""
+}
+
+type ListMailingRecipientsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMailingRecipientsRequest) Reset() {
+	*x = ListMailingRecipientsRequest{}
+	mi := &file_user_user_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMailingRecipientsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMailingRecipientsRequest) ProtoMessage() {}
+
+func (x *ListMailingRecipientsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMailingRecipientsRequest.ProtoReflect.Descriptor instead.
+func (*ListMailingRecipientsRequest) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{33}
+}
+
+type ListMailingRecipientsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Recipients    []*MailingRecipient    `protobuf:"bytes,1,rep,name=Recipients,proto3" json:"Recipients,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMailingRecipientsResponse) Reset() {
+	*x = ListMailingRecipientsResponse{}
+	mi := &file_user_user_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMailingRecipientsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMailingRecipientsResponse) ProtoMessage() {}
+
+func (x *ListMailingRecipientsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMailingRecipientsResponse.ProtoReflect.Descriptor instead.
+func (*ListMailingRecipientsResponse) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *ListMailingRecipientsResponse) GetRecipients() []*MailingRecipient {
+	if x != nil {
+		return x.Recipients
+	}
+	return nil
+}
+
+type GetMailingRecipientRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatId        int64                  `protobuf:"varint,1,opt,name=ChatId,proto3" json:"ChatId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMailingRecipientRequest) Reset() {
+	*x = GetMailingRecipientRequest{}
+	mi := &file_user_user_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMailingRecipientRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMailingRecipientRequest) ProtoMessage() {}
+
+func (x *GetMailingRecipientRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMailingRecipientRequest.ProtoReflect.Descriptor instead.
+func (*GetMailingRecipientRequest) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetMailingRecipientRequest) GetChatId() int64 {
+	if x != nil {
+		return x.ChatId
+	}
+	return 0
+}
+
+type GetMailingRecipientResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Recipient     *MailingRecipient      `protobuf:"bytes,1,opt,name=Recipient,proto3" json:"Recipient,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMailingRecipientResponse) Reset() {
+	*x = GetMailingRecipientResponse{}
+	mi := &file_user_user_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMailingRecipientResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMailingRecipientResponse) ProtoMessage() {}
+
+func (x *GetMailingRecipientResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMailingRecipientResponse.ProtoReflect.Descriptor instead.
+func (*GetMailingRecipientResponse) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetMailingRecipientResponse) GetRecipient() *MailingRecipient {
+	if x != nil {
+		return x.Recipient
+	}
+	return nil
+}
+
+type ClaimMailingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatId        int64                  `protobuf:"varint,1,opt,name=ChatId,proto3" json:"ChatId,omitempty"`
+	Kind          string                 `protobuf:"bytes,2,opt,name=Kind,proto3" json:"Kind,omitempty"`
+	Date          string                 `protobuf:"bytes,3,opt,name=Date,proto3" json:"Date,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClaimMailingRequest) Reset() {
+	*x = ClaimMailingRequest{}
+	mi := &file_user_user_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClaimMailingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClaimMailingRequest) ProtoMessage() {}
+
+func (x *ClaimMailingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClaimMailingRequest.ProtoReflect.Descriptor instead.
+func (*ClaimMailingRequest) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *ClaimMailingRequest) GetChatId() int64 {
+	if x != nil {
+		return x.ChatId
+	}
+	return 0
+}
+
+func (x *ClaimMailingRequest) GetKind() string {
+	if x != nil {
+		return x.Kind
+	}
+	return ""
+}
+
+func (x *ClaimMailingRequest) GetDate() string {
+	if x != nil {
+		return x.Date
+	}
+	return ""
+}
+
+type ClaimMailingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Claimed       bool                   `protobuf:"varint,1,opt,name=Claimed,proto3" json:"Claimed,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClaimMailingResponse) Reset() {
+	*x = ClaimMailingResponse{}
+	mi := &file_user_user_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClaimMailingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClaimMailingResponse) ProtoMessage() {}
+
+func (x *ClaimMailingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_user_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClaimMailingResponse.ProtoReflect.Descriptor instead.
+func (*ClaimMailingResponse) Descriptor() ([]byte, []int) {
+	return file_user_user_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *ClaimMailingResponse) GetClaimed() bool {
+	if x != nil {
+		return x.Claimed
+	}
+	return false
+}
+
 var File_user_user_proto protoreflect.FileDescriptor
 
 const file_user_user_proto_rawDesc = "" +
@@ -2010,7 +2366,29 @@ const file_user_user_proto_rawDesc = "" +
 	"!UpdateUserAvailableThemesResponse\x12/\n" +
 	"\n" +
 	"UserThemes\x18\x01 \x03(\v2\x0f.user.UserThemeR\n" +
-	"UserThemes2\xf0\t\n" +
+	"UserThemes\"\xbe\x01\n" +
+	"\x10MailingRecipient\x12\x16\n" +
+	"\x06ChatId\x18\x01 \x01(\x03R\x06ChatId\x12 \n" +
+	"\vIsSubscribe\x18\x02 \x01(\bR\vIsSubscribe\x12$\n" +
+	"\rIsHoroscopeOn\x18\x03 \x01(\bR\rIsHoroscopeOn\x12\x16\n" +
+	"\x06SignEn\x18\x04 \x01(\tR\x06SignEn\x12\x16\n" +
+	"\x06SignRu\x18\x05 \x01(\tR\x06SignRu\x12\x1a\n" +
+	"\bLanguage\x18\x06 \x01(\tR\bLanguage\"\x1e\n" +
+	"\x1cListMailingRecipientsRequest\"W\n" +
+	"\x1dListMailingRecipientsResponse\x126\n" +
+	"\n" +
+	"Recipients\x18\x01 \x03(\v2\x16.user.MailingRecipientR\n" +
+	"Recipients\"4\n" +
+	"\x1aGetMailingRecipientRequest\x12\x16\n" +
+	"\x06ChatId\x18\x01 \x01(\x03R\x06ChatId\"S\n" +
+	"\x1bGetMailingRecipientResponse\x124\n" +
+	"\tRecipient\x18\x01 \x01(\v2\x16.user.MailingRecipientR\tRecipient\"U\n" +
+	"\x13ClaimMailingRequest\x12\x16\n" +
+	"\x06ChatId\x18\x01 \x01(\x03R\x06ChatId\x12\x12\n" +
+	"\x04Kind\x18\x02 \x01(\tR\x04Kind\x12\x12\n" +
+	"\x04Date\x18\x03 \x01(\tR\x04Date\"0\n" +
+	"\x14ClaimMailingResponse\x12\x18\n" +
+	"\aClaimed\x18\x01 \x01(\bR\aClaimed2\xf5\v\n" +
 	"\x04User\x12?\n" +
 	"\n" +
 	"CreateUser\x12\x17.user.CreateUserRequest\x1a\x18.user.CreateUserResponse\x12B\n" +
@@ -2026,7 +2404,10 @@ const file_user_user_proto_rawDesc = "" +
 	"\x17GetCurrentThemeByUserId\x12$.user.GetCurrentThemeByUserIdRequest\x1a%.user.GetCurrentThemeByUserIdResponse\x12]\n" +
 	"\x14GetAllThemesByUserId\x12!.user.GetAllThemesByUserIdRequest\x1a\".user.GetAllThemesByUserIdResponse\x12Z\n" +
 	"\x13SetUserCurrentTheme\x12 .user.SetUserCurrentThemeRequest\x1a!.user.SetUserCurrentThemeResponse\x12l\n" +
-	"\x19UpdateUserAvailableThemes\x12&.user.UpdateUserAvailableThemesRequest\x1a'.user.UpdateUserAvailableThemesResponseB5Z3github.com/Kai120789/tarot_proto/protos/gen/go/userb\x06proto3"
+	"\x19UpdateUserAvailableThemes\x12&.user.UpdateUserAvailableThemesRequest\x1a'.user.UpdateUserAvailableThemesResponse\x12`\n" +
+	"\x15ListMailingRecipients\x12\".user.ListMailingRecipientsRequest\x1a#.user.ListMailingRecipientsResponse\x12Z\n" +
+	"\x13GetMailingRecipient\x12 .user.GetMailingRecipientRequest\x1a!.user.GetMailingRecipientResponse\x12E\n" +
+	"\fClaimMailing\x12\x19.user.ClaimMailingRequest\x1a\x1a.user.ClaimMailingResponseB5Z3github.com/Kai120789/tarot_proto/protos/gen/go/userb\x06proto3"
 
 var (
 	file_user_user_proto_rawDescOnce sync.Once
@@ -2040,7 +2421,7 @@ func file_user_user_proto_rawDescGZIP() []byte {
 	return file_user_user_proto_rawDescData
 }
 
-var file_user_user_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
+var file_user_user_proto_msgTypes = make([]protoimpl.MessageInfo, 39)
 var file_user_user_proto_goTypes = []any{
 	(*Deck)(nil),                              // 0: user.Deck
 	(*UserDeck)(nil),                          // 1: user.UserDeck
@@ -2074,19 +2455,26 @@ var file_user_user_proto_goTypes = []any{
 	(*SetUserCurrentThemeResponse)(nil),       // 29: user.SetUserCurrentThemeResponse
 	(*UpdateUserAvailableThemesRequest)(nil),  // 30: user.UpdateUserAvailableThemesRequest
 	(*UpdateUserAvailableThemesResponse)(nil), // 31: user.UpdateUserAvailableThemesResponse
-	(*timestamppb.Timestamp)(nil),             // 32: google.protobuf.Timestamp
+	(*MailingRecipient)(nil),                  // 32: user.MailingRecipient
+	(*ListMailingRecipientsRequest)(nil),      // 33: user.ListMailingRecipientsRequest
+	(*ListMailingRecipientsResponse)(nil),     // 34: user.ListMailingRecipientsResponse
+	(*GetMailingRecipientRequest)(nil),        // 35: user.GetMailingRecipientRequest
+	(*GetMailingRecipientResponse)(nil),       // 36: user.GetMailingRecipientResponse
+	(*ClaimMailingRequest)(nil),               // 37: user.ClaimMailingRequest
+	(*ClaimMailingResponse)(nil),              // 38: user.ClaimMailingResponse
+	(*timestamppb.Timestamp)(nil),             // 39: google.protobuf.Timestamp
 }
 var file_user_user_proto_depIdxs = []int32{
 	0,  // 0: user.UserDeck.deck:type_name -> user.Deck
 	2,  // 1: user.UserTheme.theme:type_name -> user.Theme
-	32, // 2: user.CreateUserResponse.birthday:type_name -> google.protobuf.Timestamp
-	32, // 3: user.CreateUserResponse.registration_date:type_name -> google.protobuf.Timestamp
-	32, // 4: user.CreateUserResponse.last_enter_date:type_name -> google.protobuf.Timestamp
-	32, // 5: user.GetUserDataResponse.Birthday:type_name -> google.protobuf.Timestamp
-	32, // 6: user.GetUserDataResponse.RegistrationDate:type_name -> google.protobuf.Timestamp
-	32, // 7: user.GetUserDataResponse.LastEnterDate:type_name -> google.protobuf.Timestamp
-	32, // 8: user.GetUserZodiacSignResponse.StartDate:type_name -> google.protobuf.Timestamp
-	32, // 9: user.GetUserZodiacSignResponse.EndDate:type_name -> google.protobuf.Timestamp
+	39, // 2: user.CreateUserResponse.birthday:type_name -> google.protobuf.Timestamp
+	39, // 3: user.CreateUserResponse.registration_date:type_name -> google.protobuf.Timestamp
+	39, // 4: user.CreateUserResponse.last_enter_date:type_name -> google.protobuf.Timestamp
+	39, // 5: user.GetUserDataResponse.Birthday:type_name -> google.protobuf.Timestamp
+	39, // 6: user.GetUserDataResponse.RegistrationDate:type_name -> google.protobuf.Timestamp
+	39, // 7: user.GetUserDataResponse.LastEnterDate:type_name -> google.protobuf.Timestamp
+	39, // 8: user.GetUserZodiacSignResponse.StartDate:type_name -> google.protobuf.Timestamp
+	39, // 9: user.GetUserZodiacSignResponse.EndDate:type_name -> google.protobuf.Timestamp
 	0,  // 10: user.GetCurrentDeckByUserIdResponse.Deck:type_name -> user.Deck
 	1,  // 11: user.GetAllDecksByUserIdResponse.UserDecks:type_name -> user.UserDeck
 	0,  // 12: user.SetUserCurrentDeckResponse.Deck:type_name -> user.Deck
@@ -2095,39 +2483,47 @@ var file_user_user_proto_depIdxs = []int32{
 	3,  // 15: user.GetAllThemesByUserIdResponse.UserThemes:type_name -> user.UserTheme
 	2,  // 16: user.SetUserCurrentThemeResponse.Theme:type_name -> user.Theme
 	3,  // 17: user.UpdateUserAvailableThemesResponse.UserThemes:type_name -> user.UserTheme
-	4,  // 18: user.User.CreateUser:input_type -> user.CreateUserRequest
-	6,  // 19: user.User.GetUserData:input_type -> user.GetUserDataRequest
-	8,  // 20: user.User.GetUserSettings:input_type -> user.GetUserSettingsRequest
-	10, // 21: user.User.UpdateUserSettings:input_type -> user.UpdateUserSettingsRequest
-	12, // 22: user.User.SetUserBirthday:input_type -> user.SetUserBirthdayRequest
-	14, // 23: user.User.GetUserZodiacSign:input_type -> user.GetUserZodiacSignRequest
-	16, // 24: user.User.GetCurrentDeckByUserId:input_type -> user.GetCurrentDeckByUserIdRequest
-	18, // 25: user.User.GetAllDecksByUserId:input_type -> user.GetAllDecksByUserIdRequest
-	20, // 26: user.User.SetUserCurrentDeck:input_type -> user.SetUserCurrentDeckRequest
-	22, // 27: user.User.UpdateUserAvailableDecks:input_type -> user.UpdateUserAvailableDecksRequest
-	24, // 28: user.User.GetCurrentThemeByUserId:input_type -> user.GetCurrentThemeByUserIdRequest
-	26, // 29: user.User.GetAllThemesByUserId:input_type -> user.GetAllThemesByUserIdRequest
-	28, // 30: user.User.SetUserCurrentTheme:input_type -> user.SetUserCurrentThemeRequest
-	30, // 31: user.User.UpdateUserAvailableThemes:input_type -> user.UpdateUserAvailableThemesRequest
-	5,  // 32: user.User.CreateUser:output_type -> user.CreateUserResponse
-	7,  // 33: user.User.GetUserData:output_type -> user.GetUserDataResponse
-	9,  // 34: user.User.GetUserSettings:output_type -> user.GetUserSettingsResponse
-	11, // 35: user.User.UpdateUserSettings:output_type -> user.UpdateUserSettingsResponse
-	13, // 36: user.User.SetUserBirthday:output_type -> user.SetUserBirthdayResponse
-	15, // 37: user.User.GetUserZodiacSign:output_type -> user.GetUserZodiacSignResponse
-	17, // 38: user.User.GetCurrentDeckByUserId:output_type -> user.GetCurrentDeckByUserIdResponse
-	19, // 39: user.User.GetAllDecksByUserId:output_type -> user.GetAllDecksByUserIdResponse
-	21, // 40: user.User.SetUserCurrentDeck:output_type -> user.SetUserCurrentDeckResponse
-	23, // 41: user.User.UpdateUserAvailableDecks:output_type -> user.UpdateUserAvailableDecksResponse
-	25, // 42: user.User.GetCurrentThemeByUserId:output_type -> user.GetCurrentThemeByUserIdResponse
-	27, // 43: user.User.GetAllThemesByUserId:output_type -> user.GetAllThemesByUserIdResponse
-	29, // 44: user.User.SetUserCurrentTheme:output_type -> user.SetUserCurrentThemeResponse
-	31, // 45: user.User.UpdateUserAvailableThemes:output_type -> user.UpdateUserAvailableThemesResponse
-	32, // [32:46] is the sub-list for method output_type
-	18, // [18:32] is the sub-list for method input_type
-	18, // [18:18] is the sub-list for extension type_name
-	18, // [18:18] is the sub-list for extension extendee
-	0,  // [0:18] is the sub-list for field type_name
+	32, // 18: user.ListMailingRecipientsResponse.Recipients:type_name -> user.MailingRecipient
+	32, // 19: user.GetMailingRecipientResponse.Recipient:type_name -> user.MailingRecipient
+	4,  // 20: user.User.CreateUser:input_type -> user.CreateUserRequest
+	6,  // 21: user.User.GetUserData:input_type -> user.GetUserDataRequest
+	8,  // 22: user.User.GetUserSettings:input_type -> user.GetUserSettingsRequest
+	10, // 23: user.User.UpdateUserSettings:input_type -> user.UpdateUserSettingsRequest
+	12, // 24: user.User.SetUserBirthday:input_type -> user.SetUserBirthdayRequest
+	14, // 25: user.User.GetUserZodiacSign:input_type -> user.GetUserZodiacSignRequest
+	16, // 26: user.User.GetCurrentDeckByUserId:input_type -> user.GetCurrentDeckByUserIdRequest
+	18, // 27: user.User.GetAllDecksByUserId:input_type -> user.GetAllDecksByUserIdRequest
+	20, // 28: user.User.SetUserCurrentDeck:input_type -> user.SetUserCurrentDeckRequest
+	22, // 29: user.User.UpdateUserAvailableDecks:input_type -> user.UpdateUserAvailableDecksRequest
+	24, // 30: user.User.GetCurrentThemeByUserId:input_type -> user.GetCurrentThemeByUserIdRequest
+	26, // 31: user.User.GetAllThemesByUserId:input_type -> user.GetAllThemesByUserIdRequest
+	28, // 32: user.User.SetUserCurrentTheme:input_type -> user.SetUserCurrentThemeRequest
+	30, // 33: user.User.UpdateUserAvailableThemes:input_type -> user.UpdateUserAvailableThemesRequest
+	33, // 34: user.User.ListMailingRecipients:input_type -> user.ListMailingRecipientsRequest
+	35, // 35: user.User.GetMailingRecipient:input_type -> user.GetMailingRecipientRequest
+	37, // 36: user.User.ClaimMailing:input_type -> user.ClaimMailingRequest
+	5,  // 37: user.User.CreateUser:output_type -> user.CreateUserResponse
+	7,  // 38: user.User.GetUserData:output_type -> user.GetUserDataResponse
+	9,  // 39: user.User.GetUserSettings:output_type -> user.GetUserSettingsResponse
+	11, // 40: user.User.UpdateUserSettings:output_type -> user.UpdateUserSettingsResponse
+	13, // 41: user.User.SetUserBirthday:output_type -> user.SetUserBirthdayResponse
+	15, // 42: user.User.GetUserZodiacSign:output_type -> user.GetUserZodiacSignResponse
+	17, // 43: user.User.GetCurrentDeckByUserId:output_type -> user.GetCurrentDeckByUserIdResponse
+	19, // 44: user.User.GetAllDecksByUserId:output_type -> user.GetAllDecksByUserIdResponse
+	21, // 45: user.User.SetUserCurrentDeck:output_type -> user.SetUserCurrentDeckResponse
+	23, // 46: user.User.UpdateUserAvailableDecks:output_type -> user.UpdateUserAvailableDecksResponse
+	25, // 47: user.User.GetCurrentThemeByUserId:output_type -> user.GetCurrentThemeByUserIdResponse
+	27, // 48: user.User.GetAllThemesByUserId:output_type -> user.GetAllThemesByUserIdResponse
+	29, // 49: user.User.SetUserCurrentTheme:output_type -> user.SetUserCurrentThemeResponse
+	31, // 50: user.User.UpdateUserAvailableThemes:output_type -> user.UpdateUserAvailableThemesResponse
+	34, // 51: user.User.ListMailingRecipients:output_type -> user.ListMailingRecipientsResponse
+	36, // 52: user.User.GetMailingRecipient:output_type -> user.GetMailingRecipientResponse
+	38, // 53: user.User.ClaimMailing:output_type -> user.ClaimMailingResponse
+	37, // [37:54] is the sub-list for method output_type
+	20, // [20:37] is the sub-list for method input_type
+	20, // [20:20] is the sub-list for extension type_name
+	20, // [20:20] is the sub-list for extension extendee
+	0,  // [0:20] is the sub-list for field type_name
 }
 
 func init() { file_user_user_proto_init() }
@@ -2143,7 +2539,7 @@ func file_user_user_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_user_user_proto_rawDesc), len(file_user_user_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   32,
+			NumMessages:   39,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

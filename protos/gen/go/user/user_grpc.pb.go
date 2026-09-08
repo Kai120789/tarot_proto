@@ -33,6 +33,9 @@ const (
 	User_GetAllThemesByUserId_FullMethodName      = "/user.User/GetAllThemesByUserId"
 	User_SetUserCurrentTheme_FullMethodName       = "/user.User/SetUserCurrentTheme"
 	User_UpdateUserAvailableThemes_FullMethodName = "/user.User/UpdateUserAvailableThemes"
+	User_ListMailingRecipients_FullMethodName     = "/user.User/ListMailingRecipients"
+	User_GetMailingRecipient_FullMethodName       = "/user.User/GetMailingRecipient"
+	User_ClaimMailing_FullMethodName              = "/user.User/ClaimMailing"
 )
 
 // UserClient is the client API for User service.
@@ -53,6 +56,9 @@ type UserClient interface {
 	GetAllThemesByUserId(ctx context.Context, in *GetAllThemesByUserIdRequest, opts ...grpc.CallOption) (*GetAllThemesByUserIdResponse, error)
 	SetUserCurrentTheme(ctx context.Context, in *SetUserCurrentThemeRequest, opts ...grpc.CallOption) (*SetUserCurrentThemeResponse, error)
 	UpdateUserAvailableThemes(ctx context.Context, in *UpdateUserAvailableThemesRequest, opts ...grpc.CallOption) (*UpdateUserAvailableThemesResponse, error)
+	ListMailingRecipients(ctx context.Context, in *ListMailingRecipientsRequest, opts ...grpc.CallOption) (*ListMailingRecipientsResponse, error)
+	GetMailingRecipient(ctx context.Context, in *GetMailingRecipientRequest, opts ...grpc.CallOption) (*GetMailingRecipientResponse, error)
+	ClaimMailing(ctx context.Context, in *ClaimMailingRequest, opts ...grpc.CallOption) (*ClaimMailingResponse, error)
 }
 
 type userClient struct {
@@ -203,6 +209,36 @@ func (c *userClient) UpdateUserAvailableThemes(ctx context.Context, in *UpdateUs
 	return out, nil
 }
 
+func (c *userClient) ListMailingRecipients(ctx context.Context, in *ListMailingRecipientsRequest, opts ...grpc.CallOption) (*ListMailingRecipientsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListMailingRecipientsResponse)
+	err := c.cc.Invoke(ctx, User_ListMailingRecipients_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userClient) GetMailingRecipient(ctx context.Context, in *GetMailingRecipientRequest, opts ...grpc.CallOption) (*GetMailingRecipientResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMailingRecipientResponse)
+	err := c.cc.Invoke(ctx, User_GetMailingRecipient_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userClient) ClaimMailing(ctx context.Context, in *ClaimMailingRequest, opts ...grpc.CallOption) (*ClaimMailingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClaimMailingResponse)
+	err := c.cc.Invoke(ctx, User_ClaimMailing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServer is the server API for User service.
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility.
@@ -221,6 +257,9 @@ type UserServer interface {
 	GetAllThemesByUserId(context.Context, *GetAllThemesByUserIdRequest) (*GetAllThemesByUserIdResponse, error)
 	SetUserCurrentTheme(context.Context, *SetUserCurrentThemeRequest) (*SetUserCurrentThemeResponse, error)
 	UpdateUserAvailableThemes(context.Context, *UpdateUserAvailableThemesRequest) (*UpdateUserAvailableThemesResponse, error)
+	ListMailingRecipients(context.Context, *ListMailingRecipientsRequest) (*ListMailingRecipientsResponse, error)
+	GetMailingRecipient(context.Context, *GetMailingRecipientRequest) (*GetMailingRecipientResponse, error)
+	ClaimMailing(context.Context, *ClaimMailingRequest) (*ClaimMailingResponse, error)
 	mustEmbedUnimplementedUserServer()
 }
 
@@ -272,6 +311,15 @@ func (UnimplementedUserServer) SetUserCurrentTheme(context.Context, *SetUserCurr
 }
 func (UnimplementedUserServer) UpdateUserAvailableThemes(context.Context, *UpdateUserAvailableThemesRequest) (*UpdateUserAvailableThemesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserAvailableThemes not implemented")
+}
+func (UnimplementedUserServer) ListMailingRecipients(context.Context, *ListMailingRecipientsRequest) (*ListMailingRecipientsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListMailingRecipients not implemented")
+}
+func (UnimplementedUserServer) GetMailingRecipient(context.Context, *GetMailingRecipientRequest) (*GetMailingRecipientResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMailingRecipient not implemented")
+}
+func (UnimplementedUserServer) ClaimMailing(context.Context, *ClaimMailingRequest) (*ClaimMailingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClaimMailing not implemented")
 }
 func (UnimplementedUserServer) mustEmbedUnimplementedUserServer() {}
 func (UnimplementedUserServer) testEmbeddedByValue()              {}
@@ -546,6 +594,60 @@ func _User_UpdateUserAvailableThemes_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _User_ListMailingRecipients_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListMailingRecipientsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).ListMailingRecipients(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_ListMailingRecipients_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).ListMailingRecipients(ctx, req.(*ListMailingRecipientsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _User_GetMailingRecipient_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMailingRecipientRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).GetMailingRecipient(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_GetMailingRecipient_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).GetMailingRecipient(ctx, req.(*GetMailingRecipientRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _User_ClaimMailing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClaimMailingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).ClaimMailing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_ClaimMailing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).ClaimMailing(ctx, req.(*ClaimMailingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // User_ServiceDesc is the grpc.ServiceDesc for User service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -608,6 +710,18 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateUserAvailableThemes",
 			Handler:    _User_UpdateUserAvailableThemes_Handler,
+		},
+		{
+			MethodName: "ListMailingRecipients",
+			Handler:    _User_ListMailingRecipients_Handler,
+		},
+		{
+			MethodName: "GetMailingRecipient",
+			Handler:    _User_GetMailingRecipient_Handler,
+		},
+		{
+			MethodName: "ClaimMailing",
+			Handler:    _User_ClaimMailing_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -14,13 +14,16 @@ service User {
     rpc SetUserBirthday (SetUserBirthdayRequest) returns (SetUserBirthdayResponse);
     rpc GetUserZodiacSign (GetUserZodiacSignRequest) returns (GetUserZodiacSignResponse);
     rpc GetCurrentDeckByUserId(GetCurrentDeckByUserIdRequest) returns (GetCurrentDeckByUserIdResponse);
-	rpc GetAllDecksByUserId(GetAllDecksByUserIdRequest) returns (GetAllDecksByUserIdResponse);
-	rpc SetUserCurrentDeck(SetUserCurrentDeckRequest) returns (SetUserCurrentDeckResponse);
-	rpc UpdateUserAvailableDecks(UpdateUserAvailableDecksRequest) returns (UpdateUserAvailableDecksResponse);
+	  rpc GetAllDecksByUserId(GetAllDecksByUserIdRequest) returns (GetAllDecksByUserIdResponse);
+	  rpc SetUserCurrentDeck(SetUserCurrentDeckRequest) returns (SetUserCurrentDeckResponse);
+	  rpc UpdateUserAvailableDecks(UpdateUserAvailableDecksRequest) returns (UpdateUserAvailableDecksResponse);
     rpc GetCurrentThemeByUserId(GetCurrentThemeByUserIdRequest) returns (GetCurrentThemeByUserIdResponse);
-	rpc GetAllThemesByUserId(GetAllThemesByUserIdRequest) returns (GetAllThemesByUserIdResponse);
-	rpc SetUserCurrentTheme(SetUserCurrentThemeRequest) returns (SetUserCurrentThemeResponse);
-	rpc UpdateUserAvailableThemes(UpdateUserAvailableThemesRequest) returns (UpdateUserAvailableThemesResponse);
+	  rpc GetAllThemesByUserId(GetAllThemesByUserIdRequest) returns (GetAllThemesByUserIdResponse);
+	  rpc SetUserCurrentTheme(SetUserCurrentThemeRequest) returns (SetUserCurrentThemeResponse);
+	  rpc UpdateUserAvailableThemes(UpdateUserAvailableThemesRequest) returns (UpdateUserAvailableThemesResponse);
+    rpc ListMailingRecipients (ListMailingRecipientsRequest) returns (ListMailingRecipientsResponse);
+    rpc GetMailingRecipient (GetMailingRecipientRequest) returns (GetMailingRecipientResponse);
+    rpc ClaimMailing (ClaimMailingRequest) returns (ClaimMailingResponse);
 }
 
 message Deck {
@@ -197,4 +200,37 @@ message UpdateUserAvailableThemesRequest {
 
 message UpdateUserAvailableThemesResponse {
     repeated UserTheme UserThemes = 1;
+}
+
+message MailingRecipient {
+    int64 ChatId = 1;
+    bool IsSubscribe = 2;
+    bool IsHoroscopeOn = 3;
+    string SignEn = 4;
+    string SignRu = 5;
+    string Language = 6;
+}
+
+message ListMailingRecipientsRequest {}
+
+message ListMailingRecipientsResponse {
+    repeated MailingRecipient Recipients = 1;
+}
+
+message GetMailingRecipientRequest {
+    int64 ChatId = 1;
+}
+
+message GetMailingRecipientResponse {
+    MailingRecipient Recipient = 1;
+}
+
+message ClaimMailingRequest {
+    int64 ChatId = 1;
+    string Kind = 2;
+    string Date = 3;
+}
+
+message ClaimMailingResponse {
+    bool Claimed = 1;
 }
